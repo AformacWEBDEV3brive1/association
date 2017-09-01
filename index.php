@@ -2,10 +2,13 @@
     <head>
         <meta charset="UTF-8">
         <title></title>
+        
     </head>
     <body>
+    <table>
         <?php
-        // put your code here
+        include 'includes/list_process.php';
         ?>
+    </table>
     </body>
 </html>
