@@ -1,12 +1,12 @@
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-        <link rel="stylesheet" type="text/css" href="custom/css/style.css" />
-    </head>
-    <body>
-        <?php
-        
-        ?>
-    </body>
+<?php
+include 'includes/header.php'; //inclusion de l'header dans toute les pages.
+?>
+
+
+<body>
+    <?php
+    include 'includes/nav_bar.php'; //inclusion de la la nav bar dans toute les pages.
+    ?>
+</body>
+
 </html>
