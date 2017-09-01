@@ -1,0 +1,18 @@
+body {
+  background-color: #A9F5A9; }
+
+#formulaire {
+  margin-top: 2%; }
+  #formulaire input {
+    border-radius: 5px; }
+  #formulaire .row {
+    margin-bottom: 2%; }
+
+@media screen and (min-width: 768px) {
+  body {
+    background-color: #F2F5A9; } }
+@media screen and (min-width: 992px) {
+  body {
+    background-color: #81DAF5; } }
+
+/*# sourceMappingURL=style.css.map */

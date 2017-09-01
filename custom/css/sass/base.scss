@@ -1,0 +1,14 @@
+// $ cd path_association_project
+// $ sass --watch custom/css/sass/base.scss:custom/css/style.css
+
+@import "mobile/color.scss";
+@import "mobile/global.scss";
+
+@media screen and (min-width: 768px){
+    @import "tablet/global.scss";
+
+}
+
+@media screen and (min-width: 992px){
+    @import "desktop/global.scss";
+}
