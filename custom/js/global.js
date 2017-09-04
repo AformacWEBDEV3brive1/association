@@ -21,20 +21,24 @@ function generate_tableau() {
 
 }
 function generate_filtres() {
-   alert($('#selection').val());
+   alert($('#valeurs_filtre').val());
         $.ajax({url:'/association/includes/list_process.php',
             type: 'post',
             data: {info: 'filter_nom_prenom',
                 filter: $('#selection').val(),
-                value: $('#valeurs_filtre')
+                value: $('#valeurs_filtre').val()
                 },
             // info est défini dans information.php, c'est une variable qui va chercher ce que l'ajax doit afficher,
             // ici la fonction getTime coté serveur
             success: function (output) { //les 2 mots dans les parenthèses doit être les mêmes.
                 $(".tableau").html(output);
-                // .heure est le nom de la class <p> où s'affiche l'heure       
-            }
+                alert("succés");       
+            },
+            error: function (xhr, thrownError){
+                        alert(xhr.status);
+        alert(thrownError);
 
+            }        
         });
 
 }
