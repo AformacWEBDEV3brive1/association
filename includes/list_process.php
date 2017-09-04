@@ -3,11 +3,55 @@
 //connection a la base de données 
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456');
 
+
+function filter_nom_prenom(){
+
+    if (isset($_POST['filter']) && isset ($_POST['value'])) {
+    $filter = $_POST['filter'];
+    $value_filter = $_POST['value'];
+    
+    $reponse = $bdd->query('SELECT * FROM membre WHERE'. $filter.' LIKE"'.$value_filter.'%"');//variable qui select les données de la table "membre"
+} else {
+    $reponse = $bdd->query('SELECT * FROM membre');
+    
+}
+liste();
+}
+
+
+/*function filter_statut(){
+if (isset($_POST['statut'])) {
+    $value_filter = $_POST['statut'];
+    
+    $reponse = $bdd->query('SELECT * FROM membre WHERE statut ="'.$value_filter.'"');//variable qui select les données de la table "membre"
+} else {
+    $reponse = $bdd->query('SELECT * FROM membre');
+    
+}
+liste();
+}
+
+
+function filter_role(){
+    
+    if (isset($_POST['role'])) {
+    $value_filter = $_POST['role'];
+    
+    $reponse = $bdd->query('SELECT * FROM membre WHERE role ="'.$value_filter.'"');//variable qui select les données de la table "membre"
+} else {
+    $reponse = $bdd->query('SELECT * FROM membre');
+    
+}
+liste();
+}*/
+
+
 $reponse = $bdd->query('SELECT * FROM membre');//variable qui select les données de la table "membre"
+
 
 liste();//lance la fonction liste
 
-function liste($filter) {//recuperation des infos de la base de données
+function liste() {//recuperation des infos de la base de données
     global $reponse;
     
     //creation du tableau 

@@ -8,10 +8,6 @@ include 'includes/header.php'; //inclusion de l'header dans toute les pages.
     include 'includes/nav_bar.php'; //inclusion de la la nav bar dans toute les pages.
     ?>
 
-    <table>
-        <?php
-        include 'includes/list_process.php';//inclut le resultat de list process.php dans des balises <table>
-        ?>
-    </table>
+    
     </body>
 
