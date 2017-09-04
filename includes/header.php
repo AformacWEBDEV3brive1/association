@@ -21,5 +21,5 @@
         <link rel="stylesheet" type="text/css" href="custom/css/style.css" />
 
         <!-- custom js  -->
-        <script type="text/javascript" src="custom/js/sample.js"></script> 
+        <script type="text/javascript" src="custom/js/global.js"></script> 
     </head>
