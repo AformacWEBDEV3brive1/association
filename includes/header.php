@@ -9,14 +9,12 @@
         <link type="text/css" rel="stylesheet" href="libraries/font-awesome/css/font-awesome.css">
         <link type="text/css" rel="stylesheet" href="libraries/animate.css">
         <link type="text/css" rel="stylesheet" href="libraries/Hover/css/hover.css">
-        
         <link type="text/css" rel="stylesheet" href="libraries/bootstrap/datepicker/bootstrap-datepicker.standalone.css">
 
         <!-- libraries js -->      
         <script type="text/javascript" src="libraries/jQuery/jquery-3.2.1.js"></script>
         <script type="text/javascript" src="libraries/tether/dist/js/tether.js"></script>
-        <script type="text/javascript" src="libraries/bootstrap/js/bootstrap.js"></script> 
-        
+        <script type="text/javascript" src="libraries/bootstrap/js/bootstrap.js"></script>        
         <script type="text/javascript" src="libraries/bootstrap/datepicker/bootstrap-datepicker.js"></script> 
 
         <!-- custom css  -->
