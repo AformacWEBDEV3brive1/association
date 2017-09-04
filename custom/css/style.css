@@ -3,6 +3,9 @@ body {
 
 #formulaire {
   margin-top: 2%; }
+  #formulaire h1 {
+    text-align: center;
+    margin-bottom: 5%; }
   #formulaire input {
     border-radius: 5px; }
   #formulaire .row {

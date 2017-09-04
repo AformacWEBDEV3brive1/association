@@ -12,9 +12,10 @@ include 'includes/header.php';
 
     </div>
 
-
+    
     <form id="formulaire" method="post" action="add_member.php">
         <div id="question" class="container">
+            <h1>Ajouter un membre</h1>
             <div class="row">
                 <div class="col-md-3"></div>
                 <label class="col-12 col-md-2">Nom: </label>
@@ -67,7 +68,9 @@ include 'includes/header.php';
                 </select>
                 <div class="col-md-3"></div>
             </div>
-        <input id="envoyer" type="submit"/>
+            <div class="row">
+                <input id="envoyer" class="offset-7 col-md-2" type="submit" value="Valider"/>
+            </div>
         </div>
     </form>
 
