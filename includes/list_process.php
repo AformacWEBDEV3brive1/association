@@ -46,7 +46,7 @@ liste();
 }*/
 
 
-$reponse = $bdd->query('SELECT * FROM membre');//variable qui select les données de la table "membre"
+$reponse = $bdd->query('SELECT * FROM role_id ');//variable qui select les données de la table "membre"
 
 
 liste();//lance la fonction liste
@@ -57,7 +57,8 @@ function liste() {//recuperation des infos de la base de données
     //creation du tableau 
     while ($donnees = $reponse->fetch()) {
         
-        $data = '<td>' . $donnees['nom'] . '</td><td>' . $donnees['prenom'] . '</td><td>' . $donnees['telephone'] . '</td><td>' . '</td><td>' . $donnees['mail'] . '</td><td>' . $donnees['date_inscription'] . '</td><td>' . $donnees['date_naissance'] . '</td><td>' . $donnees['sexe'];
+        $data = '<td>' . $donnees['id'] . '</td><td>' . $donnees['nom'] . '</td>';
+        //$data = '<td>' . $donnees['nom'] . '</td><td>' . $donnees['prenom'] . '</td><td>' . $donnees['telephone'] . '</td><td>' . '</td><td>' . $donnees['mail'] . '</td><td>' . $donnees['date_inscription'] . '</td><td>' . $donnees['date_naissance'] . '</td><td>' . $donnees['sexe'];
         $html_tab = render($data);//rajoute des balises <tr> grace a la fonction render
         echo $html_tab;
     }
