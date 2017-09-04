@@ -13,12 +13,14 @@ getForm();
   $telephone = $_POST['telephone'];
   $mail = $_POST['mail'];
   $date_inscription = $_POST['date_inscription'];
-  $date_naissance = $_POST['datte_naissance'];
+  $date_naissance = $_POST['date_naissance'];
   $sexe = $_POST['sexe'];
-  //$role = $_POST['role'];
-  //$status = $_POST['status'];
-  //$login = $_POST['login'];
-  //$mot_d_p = crypt($_POST['mdp']);
+  $role = $_POST['role'];
+  $status = $_POST['status'];
+  $login = $_POST['login'];
+  $mdp = crypt($_POST['mdp']);
+  $role = $_POST['role'];
+  $status = $_POST['status'];
   } */
 
 // informations en durs pour simuler un formulaire :
@@ -31,9 +33,10 @@ function getForm() {
         'date_inscription' => '123456789',
         'date_naissance' => '987654321',
         'sexe' => 'M',
-        
         'log' => 'yvesl',
         'mdp' => crypt('poiue31654'),
+        'role' => '2',
+        'status' => '4',
     );
     print_r($data);
     user_new($data);
@@ -47,8 +50,10 @@ function user_new($data, $mode="simple") {
     //variable pour la chaine de connexion PDO..
     $bdd = new PDO($connexion_string, $login, $mdp);
     $query="";
-   $query .= user_insert().";";
-    $query .= user_insert("log");
+    $query .= user_insert().";";
+    $query .= user_insert("log").";";
+    $query .= user_insert("role").";";
+    $query .= user_insert("status");
     
     print_r($query);
     
@@ -67,20 +72,27 @@ function user_new($data, $mode="simple") {
         ':sexe' => $data['sexe'],
         ':log' => $data['log'],
         ':mdp' => $data['mdp'],
+        ':role' => $data['role'],
+        ':status' => $data['status'],
     ));
 }
 
 
-
+/*Fonction qui sert a inserer de nouvelle entrée*/
 function user_insert($table="membre"){
-    if($table =="membre"){
+    if($table =="membre"){//insert dans la table membre
         return "INSERT INTO membre(nom, prenom, telephone, mail, date_inscription, date_naissance, sexe) 
            VALUES (:nom, :prenom, :telephone, :mail, :date_inscription, :date_naissance, :sexe)";
     }
-    else if ($table=="log"){
+    else if ($table=="log"){//insert dans la table log
         return "INSERT INTO log(log, mdp, mail) VALUES (:log, :mdp, :mail)";
     }
-        
+    else if ($table=="role"){//insert dans la table role
+        return "INSERT INTO role(role, mail) VALUES (:role, :mail)";
+    }
+    else if ($table=="status"){//insert dans la table status
+        return "INSERT INTO status(status, mail) VALUES (:status, :mail)";
+    }
 }
 ?>
 
