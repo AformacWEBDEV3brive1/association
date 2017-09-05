@@ -1,4 +1,5 @@
 <!-- Nav bar qui va dans toute les pages-->
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -15,7 +16,8 @@
         <script type="text/javascript" src="libraries/jQuery/jquery-3.2.1.js"></script>
         <script type="text/javascript" src="libraries/tether/dist/js/tether.js"></script>
         <script type="text/javascript" src="libraries/bootstrap/js/bootstrap.js"></script>        
-        <script type="text/javascript" src="libraries/bootstrap/datepicker/bootstrap-datepicker.js"></script> 
+        <script type="text/javascript" src="libraries/bootstrap/datepicker/bootstrap-datepicker.js"></script>
+        <script type="text/javascript" src="libraries/sorttable.js"></script>
 
         <!-- custom css  -->
         <link rel="stylesheet" type="text/css" href="custom/css/style.css" />
