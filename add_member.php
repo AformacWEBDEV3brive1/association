@@ -34,13 +34,57 @@ function getForm() {
         'date_naissance' => '987654321',
         'sexe' => 'M',
         'log' => 'yvesl',
-        'mdp' => crypt('poiue31654'),
+        'mdp' => crypt('poiue31654','yves.laurent@gmail.com'),
         'role' => '2',
         'status' => '4',
     );
-    print_r($data);
-    user_new($data);
+    //print_r($data);
+    //user_new($data);    
 }
+
+//ouvre la base de donnée
+function openBDD ()
+{
+    $BDD = new PDO ('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', 'boulsab1980');
+    return $BDD;   
+}
+
+//récupere l'Id du role a partir du nom du role
+function getRoleIdByName ($nom)
+{
+    try{//essaie de lancer les instructions 
+        $db = openBDD();
+
+        $res = $db->query("SELECT id FROM role_id WHERE nom = '$nom'");
+    }catch(PDOExeption $e){//retourne le message d'erreur
+        echo $e->getMessage();
+    }
+    //ferme la base de donnée
+    $db = null; 
+
+    //retourne la 1° valeur du resultat 
+    return $res->fetch()[0];
+    
+}
+
+//recupere nom du role grace a l'id
+function getNameByRoleId($id){
+    try{
+        $db= openBDD();
+        
+        $res =$db->query("SELECT nom FROM role_id WHERE id='$id'");
+        
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+    
+    $db=null;
+    
+    return $res->fetch()[0];
+}
+
+//echo getRoleIdByName('troufion');
+//echo getNameByRoleId('2');
 
 function user_new($data, $mode="simple") {
     global $connexion_string;
@@ -55,7 +99,7 @@ function user_new($data, $mode="simple") {
     $query .= user_insert("role").";";
     $query .= user_insert("status");
     
-    print_r($query);
+    //print_r($query);
     
     // si $mode = complet 
         // alors concatener $query à un insert qui insert dans les tables status et role 
@@ -75,6 +119,8 @@ function user_new($data, $mode="simple") {
         ':role' => $data['role'],
         ':status' => $data['status'],
     ));
+    
+    $bdd = null;
 }
 
 
@@ -94,6 +140,18 @@ function user_insert($table="membre"){
         return "INSERT INTO status(status, mail) VALUES (:status, :mail)";
     }
 }
+//supprime un utilisateur par son mail
+function user_delete($mail){
+    $db= openBDD();
+    
+    try{
+    $sup=$db->exec("DELETE FROM `membre` WHERE mail='$mail'");
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $db=null;
+}
+//user_delete('yves.laurent@hotmil.com');
 ?>
 
 

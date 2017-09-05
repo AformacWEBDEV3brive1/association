@@ -21,7 +21,6 @@ function generate_tableau() {
 
 }
 function generate_filtres() {
-   alert($('#valeurs_filtre').val());
         $.ajax({url:'/association/includes/list_process.php',
             type: 'post',
             data: {info: 'filter_nom_prenom',
@@ -32,7 +31,7 @@ function generate_filtres() {
             // ici la fonction getTime coté serveur
             success: function (output) { //les 2 mots dans les parenthèses doit être les mêmes.
                 $(".tableau").html(output);
-                alert("succés");       
+                     
             },
             error: function (xhr, thrownError){
                         alert(xhr.status);
