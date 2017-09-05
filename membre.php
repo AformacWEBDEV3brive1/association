@@ -14,6 +14,9 @@ include 'includes/header.php'; //inclusion de l'header dans toute les pages.
 
 <?php
 
+/*pour l'instant le mail sert d'identifiant mais il faudrait travailler avec un vrai id;
+on récupère le mail dans l'adresse et on fait une requête pour obtenir les infos du membre */
+
 if(isset($_GET['mail']))
 {
          $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456');
