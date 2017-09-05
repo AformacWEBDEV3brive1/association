@@ -8,12 +8,18 @@ include 'includes/header.php'; //inclusion de l'header dans toute les pages.
 <body>
     <?php
     include 'includes/nav_bar.php'; //inclusion de la la nav bar dans toute les pages.
+     
     ?>
-    <table>
-        <?php
-        include 'includes/list_process.php';
-        ?>
-    </table>
+   <?php
+   
+    session_start();
+    echo $_SESSION['mess_err'];
+    session_destroy();
+   //on detruit la session aprés reception du message.       
+         
+          
+   ?>
+    
 </body>
 
 
