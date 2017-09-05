@@ -22,8 +22,7 @@ include 'includes/header.php';
     </select>
     <input type='text' id ="valeurs_filtre"/>
     <button type='submit'onclick="generate_filtres()" >Envoyer</button>
-
-    <table class='tableau'></table> 
+    <table class='tableau'></table>
 
 </body>
 </html>

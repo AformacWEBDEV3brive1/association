@@ -12,6 +12,7 @@ include 'includes/header.php'; //inclusion de l'header dans toute les pages.
         include 'includes/list_process.php';
         ?>
     </table>
+    
 </body>
 
 
