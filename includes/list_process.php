@@ -24,13 +24,19 @@ function render(/* $query, $style = "table" */$donnees) {//met sous forme de tab
 function filter_nom_prenom() {
     $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456');
     if ( isset($_POST['filter']) && isset($_POST['value']) ) {
+        /*valeur du select*/
         $filter = $_POST['filter'];
+        /*valeur de l'input utilisateur*/
         $value_filter = $_POST['value'];
         
+        /*la variable qui va contenir la requete*/
+        $requete = "";
+         
+        /*switch pour determiner l'id statut à partir de ce qu'a mis l'utilisateur*/
         if($filter == "statut")
         {
             $idStatut = 0;
-            switch($filter)
+            switch($value_filter)
             {
                 case "directeur":
                     $idStatut = 0;
@@ -47,14 +53,16 @@ function filter_nom_prenom() {
                 case "benvole":
                     $idStatut = 4;
                     break;
+                default:
+                    $requete = "SELECT * FROM membre";
             }
         }
             
-        
+        /*switch pour determiner l'id role à partir de ce qu'a mis l'utilisateur*/
         if($filter == "role")
         {
             $idRole = 0;
-            switch($filter)
+            switch($value_filter)
             {
                 case "administrateur":
                     $idRole = 0;
@@ -68,26 +76,29 @@ function filter_nom_prenom() {
                 case "benevole":
                     $idRole = 3;
                     break;
+                default:
+                    $requete = "SELECT * FROM membre";
             }
         }
         
-        $requete = "";
-        switch($filter)
+        /*switch pour construire la requete; si l'utilisateur à mis n'importe quoi avec statut ou role la requete est SELECT * FROM membre (voir les cases default) */
+       if($requete == "")
         {
-            case "nom":
-                $requete = 'SELECT * FROM membre WHERE nom LIKE "' . $value_filter . '%"';
-                break;
-            case "prenom":
-                $requete = 'SELECT * FROM membre WHERE prenom LIKE "' . $value_filter . '%"';
-                break;
-            case "statut":
-                $requete = 'SELECT membre.nom, membre.prenom, membre.telephone, membre.mail, membre.date_inscription, membre.date_naissance, membre.sexe FROM membre INNER JOIN status ON membre.mail = status.mail WHERE status.status = "' . $idStatut . '"';
-                break;
-            case "role":
-                $requete = 'SELECT membre.nom, membre.prenom, membre.telephone, membre.mail, membre.date_inscription, membre.date_naissance, membre.sexe FROM membre INNER JOIN role ON membre.mail = role.mail WHERE role.role = "' . $idRole . '"';
-                break;
-                
-                
+            switch($filter)
+            {
+                case "nom":
+                    $requete = 'SELECT * FROM membre WHERE nom LIKE "' . $value_filter . '%"';
+                    break;
+                case "prenom":
+                    $requete = 'SELECT * FROM membre WHERE prenom LIKE "' . $value_filter . '%"';
+                    break;
+                case "statut":
+                    $requete = 'SELECT membre.nom, membre.prenom, membre.telephone, membre.mail, membre.date_inscription, membre.date_naissance, membre.sexe FROM membre INNER JOIN status ON membre.mail = status.mail WHERE status.status = "' . $idStatut . '"';
+                    break;
+                case "role":
+                    $requete = 'SELECT membre.nom, membre.prenom, membre.telephone, membre.mail, membre.date_inscription, membre.date_naissance, membre.sexe FROM membre INNER JOIN role ON membre.mail = role.mail WHERE role.role = "' . $idRole . '"';
+                    break;     
+            }
         }
 
         $reponse = $bdd->query($requete); 
