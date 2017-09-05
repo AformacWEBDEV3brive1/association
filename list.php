@@ -21,9 +21,21 @@ include 'includes/header.php';
         </option>
     </select>
     <input type='text' id ="valeurs_filtre"/>
-    <button type='submit' onclick="generate_filtres()" >Envoyer</button>
+    <button type='submit'onclick="generate_filtres()" >Envoyer</button>
+    <div class='container titre_colonne retour'>
+        <div class='row'>
 
-    <table class='tableau'></table> 
+            <div class='offset-lg-2 col-2 col-lg-1 xxx' >NOM</div>
+            <div class='col-1 col-lg-1 xxx' >PRENOM</div>
+            <div class='col-2 col-lg-1 xxx' >NUMERO</div>
+            <div class='col-2 col-lg-2 xxx'>EMAIL</div>
+            <div class='col-2 col-lg-1 xxx' >DATE INSCRIPTION</div>
+            <div class='col-2 col-lg-1 xxx' >DATE DE NAISSANCE</div>
+            <div class='col-1 col-lg-1 xxx'>SEXE</div><div class='offset-lg-2'></div>
 
+        </div>
+    
+    </div>
+    <div class='tableau'></div> 
 </body>
 </html>

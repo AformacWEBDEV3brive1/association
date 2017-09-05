@@ -4,6 +4,7 @@ $(document).ready(function() {
     $("#dateNaissance").datepicker();
     
     $(function(){
+        //alert("test");
         $('button[name=buttonDetails]').click(function(){
            //alert($(this).attr("id"));
            generate_pagedetaillee($(this).attr("id"));
