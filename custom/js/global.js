@@ -2,11 +2,17 @@
 $(document).ready(function() {
     $("#dateInscription").datepicker();
     $("#dateNaissance").datepicker();
+    
+    $(function(){
+        $('button[name=buttonDetails]').click(function(){
+           //alert($(this).attr("id"));
+           generate_pagedetaillee($(this).attr("id"));
+        });
+    });
 });
 
 
 function generate_tableau() {
-   
         $.ajax({url:'/association/includes/list_process.php',
             type: 'post',
             data: {info: 'liste'},
@@ -20,6 +26,7 @@ function generate_tableau() {
         });
 
 }
+
 function generate_filtres() {
         $.ajax({url:'/association/includes/list_process.php',
             type: 'post',
@@ -40,4 +47,15 @@ function generate_filtres() {
             }        
         });
 
+}
+
+function generate_pagedetaillee(mail) {
+        $.ajax({
+                url:'/association/includes/list_process.php',
+                type: 'post',
+                data: {info: 'pageDetaillee', mail: mail},
+                success: function (output) {
+                $(".tableau").html(output);   
+            }
+        });
 }

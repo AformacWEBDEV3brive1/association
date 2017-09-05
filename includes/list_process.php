@@ -11,7 +11,8 @@ function liste() {
     $reponse = $bdd->query('SELECT * FROM membre');
 
     while ($donnees = $reponse->fetch()) {
-        $data = '<td>' . $donnees['nom'] . '</td><td>' . $donnees['prenom'] . '</td><td>' . $donnees['telephone'] . '</td><td>' . '</td><td>' . $donnees['mail'] . '</td><td>' . $donnees['date_inscription'] . '</td><td>' . $donnees['date_naissance'] . '</td><td>' . $donnees['sexe'];
+        /*$data = '<td>' . $donnees['nom'] . '</td><td>' . $donnees['prenom'] . '</td><td>' . $donnees['telephone'] . '</td><td>' . '</td><td>' . $donnees['mail'] . '</td><td>' . $donnees['date_inscription'] . '</td><td>' . $donnees['date_naissance'] . '</td><td>' . $donnees['sexe'];*/
+        $data = '<td>' . $donnees['nom'] . '</td><td>' . $donnees['prenom'] . '</td><td>' . $donnees['telephone'] . '</td><td>' . '</td><td>' . $donnees['mail'] . '</td><td>' . $donnees['date_inscription'] . '</td><td>' . $donnees['date_naissance'] . '</td><td>' . $donnees['sexe'] . '</td><td><button id='. $donnees['mail']  . ' name="buttonDetails" >Details</button></td>';
         $html_tab = render($data);
         echo $html_tab;
     }
@@ -111,5 +112,22 @@ function filter_nom_prenom() {
         $html_tab = render($data);
         echo $html_tab;
     }
+}
+
+function pageDetaillee() {
+
+    if(isset($_POST['mail']))
+    {
+        $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456');
+
+        $reponse = $bdd->query('SELECT * FROM membre WHERE mail = "' . $_POST['mail'] . '"');
+
+        while ($donnees = $reponse->fetch()) {
+        $data = '<td>' . $donnees['nom'] . '</td><td>' . $donnees['prenom'] . '</td><td>' . $donnees['telephone'] . '</td><td>' . '</td><td>' . $donnees['mail'] . '</td><td>' . $donnees['date_inscription'] . '</td><td>' . $donnees['date_naissance'] . '</td><td>' . $donnees['sexe'];
+            $html_tab = render($data);
+            echo $html_tab;
+        }
+    }
+
 }
 ?>
