@@ -1,7 +1,11 @@
 <?php
 
-$info = $_POST['info'];
-$info();
+if(isset($_POST['info']))
+{
+    $info = $_POST['info'];
+    $info(); 
+}
+
 
 function liste() {
 
@@ -11,7 +15,9 @@ function liste() {
     $reponse = $bdd->query('SELECT * FROM membre');
 
     while ($donnees = $reponse->fetch()) {
-        $data = '<td class="col-2 offset-lg-2 col-lg-1">' . $donnees['nom'] . '</td><td class="col-1 col-lg-1">' . $donnees['prenom'] . '</td><td class="col-2 col-lg-1">' . $donnees['telephone'] . '</td><td class="col-2 col-lg-2  retour">' . $donnees['mail'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_inscription'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_naissance'] . '</td><td class="col-1 col-lg-1">' . $donnees['sexe'] . '</td><td><button id="'. $donnees['mail']  . '" name="buttonDetails" >Details</button></td>';
+        //$data = '<td class="col-2 offset-lg-2 col-lg-1">' . $donnees['nom'] . '</td><td class="col-1 col-lg-1">' . $donnees['prenom'] . '</td><td class="col-2 col-lg-1">' . $donnees['telephone'] . '</td><td class="col-2 col-lg-2  retour">' . $donnees['mail'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_inscription'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_naissance'] . '</td><td class="col-1 col-lg-1">' . $donnees['sexe'] . '</td><td><button id="'. $donnees['mail']  . '" name="buttonDetails" >Details</button></td>';
+        $data = '<td class="col-1 offset-lg-2 col-lg-1">' . $donnees['nom'] . '</td><td class="col-1 col-lg-1">' . $donnees['prenom'] . '</td><td class="col-2 col-lg-2">' . $donnees['telephone'] . '</td><td class="col-2 col-lg-2  retour">' . $donnees['mail'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_inscription'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_naissance'] . '</td><td class="col-1 col-lg-1">' . $donnees['sexe'] . '</td><td col-1 col-lg-1><a href="membre.php?mail='. $donnees['mail']  . '" >Details</a></td>';
+
         $html_tab = render($data);
         echo $html_tab;
     }
@@ -107,26 +113,9 @@ function filter_nom_prenom() {
         $reponse = $bdd->query('SELECT * FROM membre');
     }
     while ($donnees = $reponse->fetch()) {
-        $data = '<td class="col-2 offset-lg-2 col-lg-1">' . $donnees['nom'] . '</td><td class="col-1 col-lg-1">' . $donnees['prenom'] . '</td><td class="col-2 col-lg-1">' . $donnees['telephone'] . '</td><td class="col-2 col-lg-2">' . $donnees['mail'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_inscription'] . '</td><td class="col-1 col-lg-1">' . $donnees['date_naissance'] . '</td><td class="col-2 col-lg-1">' . $donnees['sexe'];
+        $data = '<td class="col-1 offset-lg-2 col-lg-1">' . $donnees['nom'] . '</td><td class="col-1 col-lg-1">' . $donnees['prenom'] . '</td><td class="col-2 col-lg-2">' . $donnees['telephone'] . '</td><td class="col-2 col-lg-2  retour">' . $donnees['mail'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_inscription'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_naissance'] . '</td><td class="col-1 col-lg-1">' . $donnees['sexe'] . '</td><td col-1 col-lg-1><a href="membre.php?mail='. $donnees['mail']  . '" >Details</a></td>';
         $html_tab = render($data);
         echo $html_tab;
     }
-}
-
-function pageDetaillee() {
-
-    if(isset($_POST['mail']))
-    {
-        $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456');
-
-        $reponse = $bdd->query('SELECT * FROM membre WHERE mail = "' . $_POST['mail'] . '"');
-
-        while ($donnees = $reponse->fetch()) {
-        $data = '<td class="col-2 offset-lg-2 col-lg-1">' . $donnees['nom'] . '</td><td class="col-1 col-lg-1">' . $donnees['prenom'] . '</td><td class="col-2 col-lg-1">' . $donnees['telephone'] . '</td><td class="col-2 col-lg-2  retour">' . $donnees['mail'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_inscription'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_naissance'] . '</td><td class="col-1 col-lg-1">' . $donnees['sexe'];
-            $html_tab = render($data);
-            echo $html_tab;
-        }
-    }
-
 }
 ?>
