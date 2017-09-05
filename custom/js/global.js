@@ -3,6 +3,7 @@
 $(document).ready(function () {
     $("#dateInscription").datepicker();
     $("#dateNaissance").datepicker();
+    
 });
 
 
@@ -14,7 +15,7 @@ function generate_tableau() {
         // info est défini dans information.php, c'est une variable qui va chercher ce que l'ajax doit afficher,
         // ici la fonction getTime coté serveur
         success: function (output) { //les 2 mots dans les parenthèses doit être les mêmes.
-            $(".tableau").html(output);
+            $(".tableau").append(output);
             // .heure est le nom de la class <p> où s'affiche l'heure       
         }
 
