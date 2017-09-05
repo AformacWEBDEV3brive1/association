@@ -1,5 +1,8 @@
 <?php
 
+$info = $_POST['info'];
+$info();
+
 //appel du fichier où  sont enregistrés les chaines de connexion
 include 'parameters.php';
 
@@ -23,6 +26,7 @@ getForm();
   $status = $_POST['status'];
   } */
 
+
 // informations en durs pour simuler un formulaire :
 function getForm() {
     $data = array(
@@ -41,6 +45,7 @@ function getForm() {
     //print_r($data);
     //user_new($data);    
 }
+
 
 //ouvre la base de donnée
 function openBDD ()
@@ -140,10 +145,12 @@ function user_insert($table="membre"){
         return "INSERT INTO status(status, mail) VALUES (:status, :mail)";
     }
 }
+
+
 //supprime un utilisateur par son mail
 function user_delete($mail){
     $db= openBDD();
-    
+    $mail = $_POST['recup'];
     try{
     $sup=$db->exec("DELETE FROM `membre` WHERE mail='$mail'");
     }catch(PDOException $e){
@@ -151,7 +158,9 @@ function user_delete($mail){
     }
     $db=null;
 }
-//user_delete('yves.laurent@hotmil.com');
+// si info = user_delete
+    user_delete($mail);
+// sinon rien
 ?>
 
 

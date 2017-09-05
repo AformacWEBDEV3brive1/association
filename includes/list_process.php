@@ -11,18 +11,18 @@ function liste() {
     $reponse = $bdd->query('SELECT * FROM membre');
 
     while ($donnees = $reponse->fetch()) {
-        $data = '<td>' . $donnees['nom'] . '</td><td>' . $donnees['prenom'] . '</td><td>' . $donnees['telephone'] . '</td><td>' . '</td><td>' . $donnees['mail'] . '</td><td>' . $donnees['date_inscription'] . '</td><td>' . $donnees['date_naissance'] . '</td><td>' . $donnees['sexe'];
+        $data = '<td class="col-2 offset-lg-2 col-lg-1">' . $donnees['nom'] . '</td><td class="col-1 col-lg-1">' . $donnees['prenom'] . '</td><td class="col-2 col-lg-1">' . $donnees['telephone'] . '</td><td class="col-2 col-lg-2  retour">' . $donnees['mail'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_inscription'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_naissance'] . '</td><td class="col-1 col-lg-1">' . $donnees['sexe'];
         $html_tab = render($data);
         echo $html_tab;
     }
 }
 
 function render(/* $query, $style = "table" */$donnees) {//met sous forme de tableau les données
-    echo '<tr>' . $donnees . '<tr>';
+    echo '<tr class="row">' . $donnees . '<tr>';
 }
 
 function filter_nom_prenom() {
-    $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456');
+    $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', 'boulsab1980');
     if ( isset($_POST['filter']) && isset($_POST['value']) ) {
         /*valeur du select*/
         $filter = $_POST['filter'];
@@ -107,9 +107,35 @@ function filter_nom_prenom() {
         $reponse = $bdd->query('SELECT * FROM membre');
     }
     while ($donnees = $reponse->fetch()) {
-        $data = '<td>' . $donnees['nom'] . '</td><td>' . $donnees['prenom'] . '</td><td>' . $donnees['telephone'] . '</td><td>' . '</td><td>' . $donnees['mail'] . '</td><td>' . $donnees['date_inscription'] . '</td><td>' . $donnees['date_naissance'] . '</td><td>' . $donnees['sexe'];
+        $data = '<td class="col-2 offset-lg-2 col-lg-1">' . $donnees['nom'] . '</td><td class="col-1 col-lg-1">' . $donnees['prenom'] . '</td><td class="col-2 col-lg-1">' . $donnees['telephone'] . '</td><td class="col-2 col-lg-2">' . $donnees['mail'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_inscription'] . '</td><td class="col-1 col-lg-1">' . $donnees['date_naissance'] . '</td><td class="col-2 col-lg-1">' . $donnees['sexe'];
         $html_tab = render($data);
         echo $html_tab;
     }
 }
+
+ function filter_statut(){
+  if (isset($_POST['statut'])) {
+  $value_filter = $_POST['statut'];
+
+  $reponse = $bdd->query('SELECT * FROM membre WHERE statut ="'.$value_filter.'"');//variable qui select les données de la table "membre"
+  } else {
+  $reponse = $bdd->query('SELECT * FROM membre');
+
+  }
+  liste();
+  }
+
+
+  function filter_role(){
+
+  if (isset($_POST['role'])) {
+  $value_filter = $_POST['role'];
+
+  $reponse = $bdd->query('SELECT * FROM membre WHERE role ="'.$value_filter.'"');//variable qui select les données de la table "membre"
+  } else {
+  $reponse = $bdd->query('SELECT * FROM membre');
+
+  }
+  liste();
+  }
 ?>

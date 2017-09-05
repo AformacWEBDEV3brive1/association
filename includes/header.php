@@ -1,4 +1,5 @@
 <!-- Nav bar qui va dans toute les pages-->
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
