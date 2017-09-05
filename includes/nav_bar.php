@@ -16,6 +16,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="list.php"> Liste</a>
                     </li>
+                    <form class="form-inline my-2 my-lg-0"method = "post" action="connect_user_login.php">
+      <input class="form-control mr-sm-2" type="text" name ="username" placeholder="Log">
+      <input class="form-control mr-sm-2" type="text" name="password" placeholder="Password">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">OK</button>
+    </form>
                 </ul>
             </div>
         </nav>
