@@ -34,14 +34,7 @@ if (isset($_POST['username']) && isset($_POST['password'])){ //si les champs son
             setcookie('password', $_POST['password'], time()+60*60*24*365, '/', 'localhost');
         
         } else {
-            
-            /*// cookies disparaissent quand on ferme le navigateur 
-                        setcookie('username', "alicia", time()+60*60*24*365);
-            $tmp = setcookie('username', "alicia", time()+60*60*24*365);
-            //die('test : ' . $tmp);
-            setcookie('username', $_POST['username'], false, '/account', 'www.example.com');
-            setcookie('password', $_POST['password'], false, '/account', 'www.example.com');*/
-            
+           
             session_start();
             $_SESSION['log']=$username;
             $_SESSION['user']=$username;
@@ -51,7 +44,7 @@ if (isset($_POST['username']) && isset($_POST['password'])){ //si les champs son
         }
         //on ouvre une session pour envoyer un message d'erreur sur index.php
         session_start();
-        $_SESSION['mess_err']="<div class='alert alert-success' ><p>Log/mdp Valide</p></div>";
+        $_SESSION['log']="<div class='alert alert-success' ><p>Log/mdp Valide</p></div>";
         header('Location: index.php');
         exit;
         

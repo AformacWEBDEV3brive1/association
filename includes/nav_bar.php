@@ -18,10 +18,10 @@
                     </li>
                     <form class="form-inline my-2 my-lg-0"method = "post" action="connect_user_login.php">
       <input class="form-control mr-sm-2 visible" type="text" name ="username" placeholder="log">
-      <input class="form-control mr-sm-2 visible" type="text" name="password" placeholder="mot de passe">
-      <button class="form-control btn btn-outline-success my-2 my-sm-0" type="submit">OK</button>
+      <input class="form-control mr-sm-2 visible" type="text" name="password" placeholder="mdp">
+      <button class="form-control visible btn btn-outline-success my-2 my-sm-0" type="submit">OK</button>
       <div class="nav-link cache">Bienvenue <?php echo $_SESSION['user'];?></div>
-       <button class=" nav-link cache btn btn-outline-success my-2 my-sm-0" type="submit">Deconnexion</button>
+       <button class="nav-link cache btn btn-outline-success my-2 my-sm-0" type="submit">Deconnexion</button>
     </form>
    
                 </ul>

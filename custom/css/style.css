@@ -1,3 +1,9 @@
+#nav_bar .cache {
+  display: none; }
+
+#nav_bar .visible {
+  display: block; }
+
 body {
   background-color: #A9F5A9; }
 
@@ -14,9 +20,21 @@ body {
 .titre_colonne {
   width: 100%; }
 
+#nav_bar .cache {
+  display: none; }
+
+#nav_bar .visible {
+  display: block; }
+
 @media screen and (min-width: 768px) {
   body {
-    background-color: #F2F5A9; } }
+    background-color: #F2F5A9; }
+
+  #nav_bar .cache {
+    display: none; }
+
+  #nav_bar .visible {
+    display: block; } }
 @media screen and (min-width: 992px) {
   body {
     background-color: #81DAF5; }

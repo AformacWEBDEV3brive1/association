@@ -1,3 +1,10 @@
 body{
     background-color: $jaune_pale;
 }
+//class lier aux fonctions afficher()/cacher()
+#nav_bar .cache{
+	display:none;
+	}
+#nav_bar .visible{
+	display:block;
+	}

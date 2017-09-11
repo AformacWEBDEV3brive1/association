@@ -1,10 +1,12 @@
 <?php
 include 'includes/header.php';
+
 ?>
 <body onload="generate_tableau()">
 
     <?php
     include 'includes/nav_bar.php';
+    include 'includes/test_log.php';
     ?>
     <div>
         <select id="selection">
