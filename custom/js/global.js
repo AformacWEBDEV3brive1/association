@@ -62,8 +62,8 @@ function user_delete() {
     });
 }
 
-//genere l'accueil
 
+//genere l'accueil.
 function generate_accueil() {
 
     $.ajax({url: '/association/includes/accueil_site.php',
