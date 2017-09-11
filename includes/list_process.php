@@ -19,7 +19,7 @@ function liste() {
     $reponse = $bdd->query('SELECT * FROM membre');
 
     while ($donnees = $reponse->fetch()) {
-        $data = '<td class="col-1 offset-lg-2 col-lg-1">' . $donnees['nom'] . '</td> <td class="col-1 col-lg-1">' . $donnees['prenom'] . '</td> <td class="col-2 col-lg-2">' . $donnees['telephone'] . '</td><td class="col-2 col-lg-2  retour">' . $donnees['mail'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_inscription'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_naissance'] . '</td><td class="col-1 col-lg-1">' . $donnees['sexe'] . '</td><td col-1 col-lg-1><a href="membre.php?mail=' . $donnees['mail'] . '" >Details</a></td>';
+        $data = '<td class="col-1 col-md-1">' . $donnees['nom'] . '</td> <td class="col-1 col-md-1">' . $donnees['prenom'] . '</td> <td class="col-2 col-md-2">' . $donnees['telephone'] . '</td> <td class="col-2 col-md-2 retour">' . $donnees['mail'] . '</td><td class="col-2 col-md-2">' . $donnees['date_inscription'] . '</td><td class="col-2 col-md-2">' . $donnees['date_naissance'] . '</td> <td class="col-1 col-md-1">' . $donnees['sexe'] . '</td> <td class="col-1 col-md-1"> <a href="membre.php?mail=' . $donnees['mail'] . '" > Details </a> </td>';
         $html_tab = render($data);
         echo $html_tab;
     }
@@ -111,7 +111,7 @@ function filter_nom_prenom() {
         $reponse = $bdd->query('SELECT * FROM membre');
     }
     while ($donnees = $reponse->fetch()) {
-        $data = '<td class="col-1 offset-lg-2 col-lg-1">' . $donnees['nom'] . '</td><td class="col-1 col-lg-1">' . $donnees['prenom'] . '</td><td class="col-2 col-lg-2">' . $donnees['telephone'] . '</td><td class="col-2 col-lg-2  retour">' . $donnees['mail'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_inscription'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_naissance'] . '</td><td class="col-1 col-lg-1">' . $donnees['sexe'] . '</td><td col-1 col-lg-1><a href="membre.php?mail=' . $donnees['mail'] . '" >Details</a></td>';
+        $data = '<td class="col-1 col-md-1">' . $donnees['nom'] . '</td> <td class="col-1 col-md-1">' . $donnees['prenom'] . '</td> <td class="col-2 col-md-2">' . $donnees['telephone'] . '</td> <td class="col-2 col-md-2 retour">' . $donnees['mail'] . '</td><td class="col-2 col-md-2">' . $donnees['date_inscription'] . '</td><td class="col-2 col-md-2">' . $donnees['date_naissance'] . '</td> <td class="col-1 col-md-1">' . $donnees['sexe'] . '</td> <td class="col-1 col-md-1"> <a href="membre.php?mail=' . $donnees['mail'] . '" > Details </a> </td>';
         $html_tab = render($data);
         echo $html_tab;
     }
