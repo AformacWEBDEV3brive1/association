@@ -4,7 +4,7 @@ $info = $_POST['info'];
 $info();
 
 function openBDD() {
-    $BDD = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', 'boulsab1980');
+    $BDD = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456');
     return $BDD;
 }
 //fonction qui affiche l'accueil pas fini .
