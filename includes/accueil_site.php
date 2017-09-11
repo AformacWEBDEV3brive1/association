@@ -6,7 +6,7 @@ $info();
 
 function openBDD() {
 
-    //$BDD = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456789$');
+    $BDD = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456789$');
 
 
     global $connexion_string;
