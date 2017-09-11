@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+    	<?php  session_start();?>
         <meta charset="UTF-8">
         <title></title>
         <!-- libraries css-->

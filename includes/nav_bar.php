@@ -7,20 +7,23 @@
             <a class="navbar-brand" href=""> "CACA ASOS" </a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="index.php">  Accueil <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ajout.php"> Ajout </a>
+                        <a class="nav-link cache" href="ajout.php"> Ajout </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="list.php"> Liste</a>
+                        <a class="nav-link cache" href="list.php"> Liste</a>
                     </li>
                     <form class="form-inline my-2 my-lg-0"method = "post" action="connect_user_login.php">
-      <input class="form-control mr-sm-2" type="text" name ="username" placeholder="">
-      <input class="form-control mr-sm-2" type="text" name="password" placeholder="">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">OK</button>
+      <input class="form-control mr-sm-2 visible" type="text" name ="username" placeholder="log">
+      <input class="form-control mr-sm-2 visible" type="text" name="password" placeholder="mot de passe">
+      <button class="form-control btn btn-outline-success my-2 my-sm-0" type="submit">OK</button>
+      <div class="nav-link cache">Bienvenue <?php echo $_SESSION['user'];?></div>
+       <button class=" nav-link cache btn btn-outline-success my-2 my-sm-0" type="submit">Deconnexion</button>
     </form>
+   
                 </ul>
             </div>
         </nav>

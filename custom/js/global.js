@@ -76,3 +76,21 @@ function generate_accueil() {
     });
 
 }
+function afficher(){
+    $(".nav-link").addClass("visible");
+    $(".nav-link,.visible").removeClass("cache");
+    $(".form-control").addClass("cache");
+    $(".form-control").removeClass("visible");
+
+}
+function cacher(){
+    $(".visible").addClass("cache");
+    $(".visible").removeClass("visible");
+    $(".form-control").addClass("visible");
+    $(".form-control").removeClass("cache");
+
+}
+
+
+
+

@@ -40,7 +40,7 @@ include 'includes/header.php';
                 <th class='col-1 offset-lg-2 col-lg-1'>Nom</th>
                 <th class='col-1 col-lg-1'>Prenom</th>
                 <th class='col-2 col-lg-2'>Numero</th>
-                <th class='col-2 col-lg-2 '>Email</th>
+                <th class='col-2 col-lg-2'>Email</th>
                 <th class='col-2 col-lg-1'>DateI</th>
                 <th class='col-2 col-lg-1'>DateN</th>
                 <th class='col-1 col-lg-1'>Sexe</th>

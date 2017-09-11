@@ -11,20 +11,20 @@ body {
   #formulaire .row {
     margin-bottom: 2%; }
 
+.titre_colonne {
+  width: 100%; }
+
 @media screen and (min-width: 768px) {
   body {
-    background-color: #F2F5A9; }
-  .xxx{
-      font-size: 100%;
-  }}
+    background-color: #F2F5A9; } }
 @media screen and (min-width: 992px) {
   body {
-    background-color: #81DAF5; } }
+    background-color: #81DAF5; }
+
+  #nav_bar .cache {
+    display: none; }
+
+  #nav_bar .visible {
+    display: block; } }
 
 /*# sourceMappingURL=style.css.map */
-.titre_colonne{
-    width:200%;
-}
-.retour{
-    word-wrap:break-word;
-}
