@@ -11,9 +11,9 @@ include 'includes/header.php'; //inclusion de l'header dans toute les pages.
     ?>
    <?php
    
-    session_start();
+    /*session_start();
     echo $_SESSION['mess_err'];
-    session_destroy();
+    session_destroy();*/
    //on detruit la session aprés reception du message.       
          
           
