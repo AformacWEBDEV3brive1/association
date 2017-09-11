@@ -1,23 +1,30 @@
 <?php
 
-if(isset($_POST['info']))
-{
-    $info = $_POST['info'];
-    $info(); 
-}
+include 'parameters.php';
 
+if (isset($_POST['info'])) {
+    $info = $_POST['info'];
+    $info();
+}
 
 function liste() {
 
 //recuperation des infos de la base de données
-    $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456789$');
+
+   // $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456789$');
+
+
+
+    global $connexion_string;
+    global $login;
+    global $mdp;
+    $bdd = new PDO($connexion_string, $login, $mdp);
 
 
     $reponse = $bdd->query('SELECT * FROM membre');
 
     while ($donnees = $reponse->fetch()) {
-        $data = '<td class="col-1 offset-lg-2 col-lg-1">' . $donnees['nom'] . '</td><td class="col-1 col-lg-1">' . $donnees['prenom'] . '</td><td class="col-2 col-lg-2">' . $donnees['telephone'] . '</td><td class="col-2 col-lg-2  retour">' . $donnees['mail'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_inscription'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_naissance'] . '</td><td class="col-1 col-lg-1">' . $donnees['sexe'] . '</td><td col-1 col-lg-1><a href="membre.php?mail='. $donnees['mail']  . '" >Details</a></td>';
-
+        $data = '<td class="col-1 col-md-1">' . $donnees['nom'] . '</td> <td class="col-1 col-md-1">' . $donnees['prenom'] . '</td> <td class="col-2 col-md-2">' . $donnees['telephone'] . '</td> <td class="col-2 col-md-2 retour">' . $donnees['mail'] . '</td><td class="col-2 col-md-2">' . $donnees['date_inscription'] . '</td><td class="col-2 col-md-2">' . $donnees['date_naissance'] . '</td> <td class="col-1 col-md-1">' . $donnees['sexe'] . '</td> <td class="col-1 col-md-1"> <a href="membre.php?mail=' . $donnees['mail'] . '" > Details </a> </td>';
         $html_tab = render($data);
         echo $html_tab;
     }
@@ -28,22 +35,23 @@ function render(/* $query, $style = "table" */$donnees) {//met sous forme de tab
 }
 
 function filter_nom_prenom() {
-    $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456');
-    if ( isset($_POST['filter']) && isset($_POST['value']) ) {
-        /*valeur du select*/
+    global $connexion_string;
+    global $login;
+    global $mdp;
+    $bdd = new PDO($connexion_string, $login, $mdp);
+    if (isset($_POST['filter']) && isset($_POST['value'])) {
+        /* valeur du select */
         $filter = $_POST['filter'];
-        /*valeur de l'input utilisateur*/
+        /* valeur de l'input utilisateur */
         $value_filter = $_POST['value'];
-        
-        /*la variable qui va contenir la requete*/
+
+        /* la variable qui va contenir la requete */
         $requete = "";
-         
-        /*switch pour determiner l'id statut à partir de ce qu'a mis l'utilisateur*/
-        if($filter == "statut")
-        {
+
+        /* switch pour determiner l'id statut à partir de ce qu'a mis l'utilisateur */
+        if ($filter == "statut") {
             $idStatut = 0;
-            switch($value_filter)
-            {
+            switch ($value_filter) {
                 case "directeur":
                     $idStatut = 0;
                     break;
@@ -63,13 +71,11 @@ function filter_nom_prenom() {
                     $requete = "SELECT * FROM membre";
             }
         }
-            
-        /*switch pour determiner l'id role à partir de ce qu'a mis l'utilisateur*/
-        if($filter == "role")
-        {
+
+        /* switch pour determiner l'id role à partir de ce qu'a mis l'utilisateur */
+        if ($filter == "role") {
             $idRole = 0;
-            switch($value_filter)
-            {
+            switch ($value_filter) {
                 case "administrateur":
                     $idRole = 0;
                     break;
@@ -86,12 +92,10 @@ function filter_nom_prenom() {
                     $requete = "SELECT * FROM membre";
             }
         }
-        
-        /*switch pour construire la requete; si l'utilisateur à mis n'importe quoi avec statut ou role la requete est SELECT * FROM membre (voir les cases default) */
-       if($requete == "")
-        {
-            switch($filter)
-            {
+
+        /* switch pour construire la requete; si l'utilisateur à mis n'importe quoi avec statut ou role la requete est SELECT * FROM membre (voir les cases default) */
+        if ($requete == "") {
+            switch ($filter) {
                 case "nom":
                     $requete = 'SELECT * FROM membre WHERE nom LIKE "' . $value_filter . '%"';
                     break;
@@ -103,19 +107,19 @@ function filter_nom_prenom() {
                     break;
                 case "role":
                     $requete = 'SELECT membre.nom, membre.prenom, membre.telephone, membre.mail, membre.date_inscription, membre.date_naissance, membre.sexe FROM membre INNER JOIN role ON membre.mail = role.mail WHERE role.role = "' . $idRole . '"';
-                    break;     
+                    break;
             }
         }
 
-        $reponse = $bdd->query($requete); 
-    } 
-    else {
+        $reponse = $bdd->query($requete);
+    } else {
         $reponse = $bdd->query('SELECT * FROM membre');
     }
     while ($donnees = $reponse->fetch()) {
-        $data = '<td class="col-1 offset-lg-2 col-lg-1">' . $donnees['nom'] . '</td><td class="col-1 col-lg-1">' . $donnees['prenom'] . '</td><td class="col-2 col-lg-2">' . $donnees['telephone'] . '</td><td class="col-2 col-lg-2  retour">' . $donnees['mail'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_inscription'] . '</td><td class="col-2 col-lg-1">' . $donnees['date_naissance'] . '</td><td class="col-1 col-lg-1">' . $donnees['sexe'] . '</td><td col-1 col-lg-1><a href="membre.php?mail='. $donnees['mail']  . '" >Details</a></td>';
+        $data = '<td class="col-1 col-md-1">' . $donnees['nom'] . '</td> <td class="col-1 col-md-1">' . $donnees['prenom'] . '</td> <td class="col-2 col-md-2">' . $donnees['telephone'] . '</td> <td class="col-2 col-md-2 retour">' . $donnees['mail'] . '</td><td class="col-2 col-md-2">' . $donnees['date_inscription'] . '</td><td class="col-2 col-md-2">' . $donnees['date_naissance'] . '</td> <td class="col-1 col-md-1">' . $donnees['sexe'] . '</td> <td class="col-1 col-md-1"> <a href="membre.php?mail=' . $donnees['mail'] . '" > Details </a> </td>';
         $html_tab = render($data);
         echo $html_tab;
     }
 }
+
 ?>
