@@ -46,6 +46,37 @@ function generate_filtres() {
 
 }
 
+function user_ajout() {
+     alert('test');
+    var dateI = $('#dateInscription').data('datepicker').dates[0].getTime();
+    var dateN = $('#dateNaissance').data('datepicker').dates[0].getTime();
+ 
+
+    $.ajax({url: 'add_member.php',
+        type: 'post',
+        data: {info: 'getForm',
+            nom: $('#nom').val(),
+            prenom: $('#prenom').val(),
+            telephone: $('#telephone').val(),
+            mail: $('#mail').val(),
+            dateI: dateI,
+            dateN: dateN,
+            sexe: $('#sexe').val(),
+        },
+        success: function (output) {
+            alert('srdtfyguhijokpl$');
+            $("#ajout").html(output);
+
+        },
+        error: function (xhr, thrownError) {
+            alert(xhr.status);
+            alert(thrownError);
+        }
+        
+
+    });
+}
+
 
 function user_delete() {
 
@@ -72,7 +103,6 @@ function generate_accueil() {
         success: function (output) {
             $("#accueil").html(output);
         }
-
     });
 
 }
