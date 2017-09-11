@@ -15,34 +15,34 @@ include 'includes/header.php';
     </div>
 
     
-    <form id="formulaire" method="post" action="add_member.php">
+    <form id="formulaire" method="post">
         <div id="question" class="container">
             <h1>Ajouter un membre</h1>
             <div class="row">
                 <div class="col-md-3"></div>
                 <label class="col-12 col-md-2">Nom: </label>
-                <input class="col-12 col-md-4" type="text" name="nom" />
+                <input id="nom" class="col-12 col-md-4" type="text" name="nom" />
                 <div class="col-md-3"></div>
             </div>
 
             <div class="row">
                 <div class="col-md-3"></div>
                 <label class="col-12 col-md-2">Prénom: </label>
-                <input class="col-12 col-md-4" type="text" name="prenom" />
+                <input id="prenom" class="col-12 col-md-4" type="text" name="prenom" />
                 <div class="col-md-3"></div>
             </div>
 
             <div class="row">
                 <div class="col-md-3"></div>
                 <label class="col-12 col-md-2">Téléphone: </label>
-                <input class="col-12 col-md-4" type="tel" name="telephone" />
+                <input id="telephone" class="col-12 col-md-4" type="tel" name="telephone" />
                 <div class="col-md-3"></div>
             </div>
 
             <div class="row">
                 <div class="col-md-3"></div>
                 <label class="col-12 col-md-2">Mail: </label>
-                <input class="col-12 col-md-4" type="email" name="mail" />
+                <input id="mail" class="col-12 col-md-4" type="email" name="mail" />
                 <div class="col-md-3"></div>
             </div>
 
@@ -63,7 +63,7 @@ include 'includes/header.php';
             <div class="row">
                 <div class="col-md-3"></div>
                 <label class="col-12 col-md-2">Sexe: </label>
-                <select class="col-12 col-md-4" name="sexe">
+                <select id="sexe" class="col-12 col-md-4" name="sexe">
                     <option value="M">Homme</option>
                     <option value="F">Femme</option>
                     <option value="Autre">Autre</option>
@@ -71,7 +71,7 @@ include 'includes/header.php';
                 <div class="col-md-3"></div>
             </div>
             <div class="row">
-                <input id="envoyer" class="offset-7 col-md-2" type="submit" value="Valider"/>
+                <input id="envoyer" onclick="user_ajout()" class="offset-7 col-md-2" type="button" value="Valider"/>
             </div>
         </div>
     </form>

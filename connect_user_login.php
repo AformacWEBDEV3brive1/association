@@ -2,7 +2,9 @@
 <?php
 
 $acces = false;
+
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456789$');
+
 /* These are our valid username and passwords */
 $user = $bdd->query("SELECT log, mdp, mail FROM `log`");//on regarde dans la BDD
 

@@ -12,6 +12,7 @@ function liste() {
 //recuperation des infos de la base de données
     $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456789$');
 
+
     $reponse = $bdd->query('SELECT * FROM membre');
 
     while ($donnees = $reponse->fetch()) {
@@ -27,7 +28,7 @@ function render(/* $query, $style = "table" */$donnees) {//met sous forme de tab
 }
 
 function filter_nom_prenom() {
-    $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', 'boulsab1980');
+    $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456');
     if ( isset($_POST['filter']) && isset($_POST['value']) ) {
         /*valeur du select*/
         $filter = $_POST['filter'];
