@@ -1,7 +1,7 @@
 <?php
 
 include '../parameters.php';
-
+include 'age.php';
 if (isset($_POST['info'])) {
     $info = $_POST['info'];
     $info();
@@ -25,11 +25,13 @@ function liste() {
         $date_i = date('d/m/Y',$donnees['date_inscription']);
         if($donnees['date_naissance'] != ''){
             $date_n = date('d/m/Y',$donnees['date_naissance']);
+            $age_v=birthday_to_age($donnees['date_naissance']);
         }
         else{
             $date_n = '';
         }
 
+        
         $data = '<td class="col-2  col-md-1 col-lg-1 ">'. substr($donnees['nom'], 0, 5) .'</td> '
                 . '<td class="col-2 col-md-1 col-lg-1 ">' . $donnees['prenom'] . '</td> '
                 . '<td class="col-md-2 numb col-lg-2 ">' . $donnees['telephone'] . '</td> '
@@ -37,7 +39,7 @@ function liste() {
                 . '<td class="col-3 col-md-2 col-lg-2 dateI">' . $date_i . '</td>'
                 . '<td class="  dateN">' . $date_n . '</td> '
                 . '<td class="  sexe">' . $donnees['sexe'] . '</td> '
-                . '<td class=" col-md-1 col-lg-1 age">' . $donnees['age'] . '</td> '
+                . '<td class=" col-md-1 col-lg-1 age">' . $age_v. '</td> '
                 . '<td class="col-5 col-md-2 col-lg-3  actions">
                     <div class="row">
                 <a class="fa fa-info fa-2x infos" href="membre.php?mail=' . $donnees['mail'] . '"></a>
@@ -151,7 +153,7 @@ function filter_nom_prenom() {
                 '</td><td class="col-2 col-md-2">' . $date_n . 
                 '</td> <td class="col-1 col-md-1">' . $donnees['sexe'] . 
                 '</td> <td class="col-1 col-md-1"> <a href="membre.php?mail=' . $donnees['mail'] . 
-                '" > Details </a> </td>'
+                '" > Details </a> </td>';
         $html_tab = render($data);
         echo $html_tab;
     }

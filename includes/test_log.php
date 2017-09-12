@@ -20,5 +20,6 @@ if ($_SESSION['log'] == null) {
        </script>       
        <?php
     }
+  
 
 ?>

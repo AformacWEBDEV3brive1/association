@@ -12,6 +12,7 @@ include 'includes/header.php'; //inclusion de l'header dans toute les pages.
     <?php
     include 'includes/nav_bar.php'; //inclusion de la la nav bar dans toute les pages.
     include 'includes/test_log.php';
+    include 'includes/age.php';
     ?>
 
 
@@ -35,14 +36,7 @@ if(isset($_GET['mail']))
             $date_i = date('d/m/Y',$donnees['date_inscription']);
             if($donnees['date_naissance'] != ''){
                 $date_n = date('d/m/Y',$donnees['date_naissance']);
-                echo $donnees['date_naissance'].'<br/>';
-                
-                $date_a= time();
-                
-                echo $date_a;
-                $age=$date_a-$donnees['date_naissance'];
-                $date_age = (((($age/60)/60)/24)/365);
-                $age_vrai= '<br/> Age: ' . floor($date_age);
+                $age_v=birthday_to_age($donnees['date_naissance']);
             }
             else{
                 $date_n = '';
@@ -55,7 +49,7 @@ if(isset($_GET['mail']))
          "<br/> Date d'inscription: " . $date_i .
          '<br/> Date de naissance: ' . $date_n .
          '<br/> Sexe: ' . $donnees['sexe'].
-         $age_vrai;
+         '<br/> Age: ' . $age_v;
          
            
         }
