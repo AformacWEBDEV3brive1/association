@@ -1,10 +1,12 @@
 <?php
 include 'includes/header.php';
+
 ?>
 <body onload="generate_tableau()">
 
     <?php
     include 'includes/nav_bar.php';
+    include 'includes/test_log.php';
     ?>
     <div>
         <select id="selection">
@@ -33,6 +35,7 @@ include 'includes/header.php';
         </div>
     </div>
 
+
     
         <div class='container titre_colonne retour'>
             <!-- remplacement de l'ancienne div par une table pour pouvoir utiliser facilement la librairie sorttable-->
@@ -50,5 +53,6 @@ include 'includes/header.php';
             </table>
         </div>
     
+
 </body>
 </html>

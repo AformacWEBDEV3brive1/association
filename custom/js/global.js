@@ -47,30 +47,32 @@ function generate_filtres() {
 }
 
 function user_ajout() {
-     alert('test');
     var dateI = $('#dateInscription').data('datepicker').dates[0].getTime();
     var dateN = $('#dateNaissance').data('datepicker').dates[0].getTime();
- 
 
     $.ajax({url: 'add_member.php',
         type: 'post',
         data: {info: 'getForm',
+            log: $('#log').val(),
             nom: $('#nom').val(),
             prenom: $('#prenom').val(),
+            mdp: $('#mdp').val(),
             telephone: $('#telephone').val(),
             mail: $('#mail').val(),
             dateI: dateI,
             dateN: dateN,
             sexe: $('#sexe').val(),
+            role: $('#role').val(),
+            status: $('#status').val()
         },
         success: function (output) {
-            alert('srdtfyguhijokpl$');
+            //alert("succes!");
             $("#ajout").html(output);
-
+            $("#formulaire").trigger("reset");
+              
         },
         error: function (xhr, thrownError) {
-            alert(xhr.status);
-            alert(thrownError);
+            alert("Erreur   " + "xhr.status: " + xhr.status + "   xhr.responseText: " + xhr.responseText + "   xhr.readyState: " + xhr.readyState + "   thrownError: " + thrownError);
         }
         
 
@@ -106,3 +108,21 @@ function generate_accueil() {
     });
 
 }
+function afficher(){
+    $(".nav-link").addClass("visible");
+    $(".nav-link,.visible").removeClass("cache");
+    $(".form-control").addClass("cache");
+    $(".form-control").removeClass("visible");
+
+}
+function cacher(){
+    $(".visible").addClass("cache");
+    $(".visible").removeClass("visible");
+    $(".form-control").addClass("visible");
+    $(".form-control").removeClass("cache");
+
+}
+
+
+
+

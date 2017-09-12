@@ -11,10 +11,15 @@ function liste() {
 
 //recuperation des infos de la base de données
 
+   //$bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456789$');
+
+
+
     global $connexion_string;
     global $login;
     global $mdp;
     $bdd = new PDO($connexion_string, $login, $mdp);
+
 
     $reponse = $bdd->query('SELECT * FROM membre');
 

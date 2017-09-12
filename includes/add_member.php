@@ -1,5 +1,7 @@
 <?php
 
+
+
 include 'includes/parameters.php';
 
 $info = $_POST['info'];
@@ -176,6 +178,7 @@ function user_delete($mail) {
 }
 // si info = user_delete
 user_delete($mail);
+>>>>>>> branch 'master' of https://github.com/AformacWEBDEV3brive1/association.git
 // sinon rien
 ?>
 

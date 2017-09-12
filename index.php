@@ -1,18 +1,41 @@
 <?php
 include 'includes/header.php'; //inclusion de l'header dans toute les pages.
 include 'includes/accueil_site.php';
+include 'includes/nav_bar.php'; //inclusion de la la nav bar dans toute les pages.
 ?>
 
 
-<!--<body onload="generate_accueil()">-->
 <body>
     <?php
-    include 'includes/nav_bar.php'; //inclusion de la la nav bar dans toute les pages.
-
     session_start();
     echo $_SESSION['mess_err'];
     session_destroy();
-    //on detruit la session aprés reception du message.
+    //on detruit la session aprés reception du message. 
+       if ($_SESSION['log'] == null) {
+        session_destroy();
+        ?>
+       <script>
+       cacher();
+       </script>       
+       <?php
+    } else if ($_SESSION['log'] == "<div class='alert alert-danger' ><p>Log/mdp Invalide</p></div>") {
+    echo $_SESSION['log'];
+        ?>
+       <script>
+       cacher();
+       </script>       
+       <?php
+        session_destroy();
+        // on detruit la session aprés reception du message.
+    } else {
+        $_SESSION['log'];
+        ?>
+       <script>
+       afficher();
+       </script>       
+       <?php
+    }
+    
     ?>
 
     <?php $res = affiche_accueil(); ?>
@@ -34,6 +57,11 @@ include 'includes/accueil_site.php';
 
         </div>
     </div>
+    
+    
+        
+
+
 </body>
 
 

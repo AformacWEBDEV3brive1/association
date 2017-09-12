@@ -1,3 +1,9 @@
+#nav_bar .cache {
+  display: none; }
+
+#nav_bar .visible {
+  display: block; }
+
 body {
   background-color: #81DAF5; }
 
@@ -26,12 +32,30 @@ body {
   border-radius: 2%; }
 #accueil .espace h1 {
   padding: 2%; }
+#nav_bar .cache {
+  display: none; }
+
+#nav_bar .visible {
+  display: block; }
 
 @media screen and (min-width: 768px) {
   body {
-    background-color: #81DAF5; } }
+    background-color: #81DAF5; } 
+    background-color: #F2F5A9; }
+
+  #nav_bar .cache {
+    display: none; }
+
+  #nav_bar .visible {
+    display: block; } 
 @media screen and (min-width: 992px) {
   body {
-    background-color: #81DAF5; } }
+    background-color: #81DAF5; }
+
+  #nav_bar .cache {
+    display: none; }
+
+  #nav_bar .visible {
+    display: block; } }
 
 /*# sourceMappingURL=style.css.map */

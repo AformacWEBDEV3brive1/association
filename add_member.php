@@ -1,5 +1,9 @@
 <?php
-return 'coucou';
+
+include 'debug.php';
+debug_php('debug1111');
+//echo 'coucou';
+debug_php('debug2222');
 $info = $_POST['info'];
 $info();
 //appel du fichier où  sont enregistrés les chaines de connexion
@@ -7,10 +11,12 @@ include 'parameters.php';
 
 //appel de la fonction getForm pour recuperer les valeurs du formulaire
 //getForm();
-
 // foonction générique en commentaire en attendant que le formulaire soit en place :
+
+
+
 function getForm() {
-    die();
+    debug_php('debut_getForm');
     $data = array(
         'nom' => $_POST['nom'],
         'prenom' => $_POST['prenom'],
@@ -19,14 +25,13 @@ function getForm() {
         'date_inscription' => $_POST['dateI'],
         'date_naissance' => $_POST['dateN'],
         'sexe' => $_POST['sexe'],
-            //$role = $_POST['role'],
-            //$status = $_POST['status'],
-            //$login = $_POST['login'],
-            //$mdp = crypt($_POST['mdp']),
-            //$role = $_POST['role'],
-            //$status = $_POST['status'],
+        'role' => $_POST['role'],
+        'status' => $_POST['status'],
+        'log' => $_POST['log'],
+        'mdp' => crypt($_POST['mdp'])
     );
-    print_r($data);
+    //debug_php($data);
+    //print_r($data);
     user_new($data);
 }
 
@@ -129,11 +134,20 @@ function user_new($data) {//, $mode = "simple"
     $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456');
     $query = "";
     $query .= user_insert() . ";";
-    //$query .= user_insert("log") . ";";
-    //$query .= user_insert("role") . ";";
-    //$query .= user_insert("status");
+    $query .= user_insert("log") . ";";
+    if(isset($_POST["status"]) && $_POST["status"]!="Vide")
+    {
+        $query .= user_insert("status") . ";";
+    }
+    
+    if(isset($_POST["role"]) && $_POST["role"]!="Vide")
+    {
+        $query .= user_insert("role") . ";";
+    }
 
-    print_r($query);
+    
+
+    //print_r($query);
     // si $mode = complet 
     // alors concatener $query à un insert qui insert dans les tables status et role 
 
@@ -147,18 +161,21 @@ function user_new($data) {//, $mode = "simple"
         'date_inscription' => $data['date_inscription'],
         'date_naissance' => $data['date_naissance'],
         'sexe' => $data['sexe'],
-            //':log' => $data['log'],
-            //':mdp' => $data['mdp'],
-            //':role' => $data['role'],
-            //':status' => $data['status'],
+        'log' => $data['log'],
+        'mdp' => $data['mdp'],
+        'role' => $data['role'],
+        'status' => $data['status']
     ));
-    echo '<br/>';
-    print_r($tmp);
     
+    /*echo '<br/>';
+    print_r($tmp);
     echo 'error requete';
-print_r($req_membre->errorInfo()); 
-die();
+    print_r($req_membre->errorInfo());
+    */
+    
     $bdd = null;
+    debug_php('testCOUCOU');
+    echo "Le membre à été ajouté avec succès!";
 }
 
 /* Fonction qui sert a inserer de nouvelle entrée */
