@@ -42,6 +42,24 @@ body {
 #nav_bar .visible {
   display: block; }
 
+.numb {
+  display: none; }
+
+.email {
+  display: none; }
+
+.sexe {
+  display: none; }
+
+.dateN {
+  display: none; }
+
+.age {
+  display: none; }
+
+.pencil, .trash, .envelope, .infos {
+  margin-left: 5%; }
+
 @media screen and (min-width: 768px) {
   body {
     background-color: #81DAF5; }
@@ -50,7 +68,13 @@ body {
     display: none; }
 
   #nav_bar .visible {
-    display: block; } }
+    display: block; }
+
+  .numb, .email, .dateI, .age, .nom, .prenom {
+    display: block; }
+
+  .email, .numb {
+    word-wrap: break-word; } }
 @media screen and (min-width: 992px) {
   body {
     background-color: #81DAF5; }
@@ -59,6 +83,9 @@ body {
     display: none; }
 
   #nav_bar .visible {
-    display: block; } }
+    display: block; }
+
+  .email {
+    text-align: center; } }
 
 /*# sourceMappingURL=style.css.map */
