@@ -19,7 +19,7 @@ $user = $bdd->query("SELECT log, mdp, mail FROM `log`");//on regarde dans la BDD
 
 $user = $user->fetchAll();//on va chercher dans la BDD
 echo '<pre>';
- print_r($user);
+ //print_r($user);
  echo'</pre>';
 
 $username = $_POST['username'];
