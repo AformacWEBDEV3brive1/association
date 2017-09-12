@@ -7,5 +7,4 @@
         $age_vrai= floor($date_age);
         return $age_vrai;
     }
-    
     ?>
