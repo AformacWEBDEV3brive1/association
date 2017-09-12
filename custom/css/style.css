@@ -5,7 +5,7 @@
   display: block; }
 
 body {
-  background-color: #A9F5A9; }
+  background-color: #81DAF5; }
 
 #formulaire {
   margin-top: 2%; }
@@ -20,6 +20,18 @@ body {
 .titre_colonne {
   width: 100%; }
 
+#accueil .taille_photo {
+  width: 100%; }
+#accueil .background_message {
+  background-color: #0F9DE8;
+  color: #81DAF5;
+  border-radius: 8%; }
+#accueil .espace_message {
+  margin-top: 4%;
+  margin-bottom: 4%;
+  border-radius: 2%; }
+#accueil .espace h1 {
+  padding: 2%; }
 #nav_bar .cache {
   display: none; }
 
@@ -28,13 +40,14 @@ body {
 
 @media screen and (min-width: 768px) {
   body {
+    background-color: #81DAF5; } 
     background-color: #F2F5A9; }
 
   #nav_bar .cache {
     display: none; }
 
   #nav_bar .visible {
-    display: block; } }
+    display: block; } 
 @media screen and (min-width: 992px) {
   body {
     background-color: #81DAF5; }
