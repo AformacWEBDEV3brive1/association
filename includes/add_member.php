@@ -1,58 +1,62 @@
 <?php
 
-
-
-include 'includes/parameters.php';
-
+include 'debug.php';
+debug_php('debug1111');
+//echo 'coucou';
+debug_php('debug2222');
 $info = $_POST['info'];
 $info();
-
 //appel du fichier où  sont enregistrés les chaines de connexion
-//appel de la fonction getForm pour recuperer les valeurs du formulaire
-getForm();
+include 'parameters.php';
 
-/* foonction générique en commentaire en attendant que le formulaire soit en place :
-  function getForm(){
-  $nom = $_POST['nom'];
-  $prenom = $_POST['prenom'];
-  $telephone = $_POST['telephone'];
-  $mail = $_POST['mail'];
-  $date_inscription = $_POST['date_inscription'];
-  $date_naissance = $_POST['date_naissance'];
-  $sexe = $_POST['sexe'];
-  $role = $_POST['role'];
-  $status = $_POST['status'];
-  $login = $_POST['login'];
-  $mdp = crypt($_POST['mdp']);
-  $role = $_POST['role'];
-  $status = $_POST['status'];
-  } */
+//appel de la fonction getForm pour recuperer les valeurs du formulaire
+//getForm();
+// foonction générique en commentaire en attendant que le formulaire soit en place :
+
+
+
+function getForm() {
+    debug_php('debut_getForm');
+    $data = array(
+        'nom' => $_POST['nom'],
+        'prenom' => $_POST['prenom'],
+        'telephone' => $_POST['telephone'],
+        'mail' => $_POST['mail'],
+        'date_inscription' => $_POST['dateI'],
+        'date_naissance' => $_POST['dateN'],
+        'sexe' => $_POST['sexe'],
+        'role' => $_POST['role'],
+        'status' => $_POST['status'],
+        'log' => $_POST['log'],
+        'mdp' => crypt($_POST['mdp'])
+    );
+    //debug_php($data);
+    //print_r($data);
+    user_new($data);
+}
 
 // informations en durs pour simuler un formulaire :
-function getForm() {
-    $data = array(
-        'nom' => 'yves',
-        'prenom' => 'laurent',
-        'telephone' => '0748995500',
-        'mail' => 'yves.laurent@gmail.com',
-        'date_inscription' => '123456789',
-        'date_naissance' => '987654321',
-        'sexe' => 'M',
-        'log' => 'yvesl',
-        'mdp' => crypt('poiue31654', 'yves.laurent@gmail.com'),
-        'role' => '2',
-        'status' => '4',
-    );
-    //print_r($data);
-    //user_new($data);    
-}
+/* function getForm() {
+  $data = array(
+  'nom' => 'yves',
+  'prenom' => 'laurent',
+  'telephone' => '0748995500',
+  'mail' => 'yves.laurent@gmail.com',
+  'date_inscription' => '123456789',
+  'date_naissance' => '987654321',
+  'sexe' => 'M',
+  'log' => 'yvesl',
+  'mdp' => crypt('poiue31654','yves.laurent@gmail.com'),
+  'role' => '2',
+  'status' => '4',
+  );
+  //print_r($data);
+  //user_new($data);
+  } */
 
 //ouvre la base de donnée
 function openBDD() {
-    global $connexion_string;
-    global $login;
-    global $mdp;
-    $BDD = new PDO($connexion_string, $login, $mdp);
+    $BDD = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456');
     return $BDD;
 }
 
@@ -118,14 +122,30 @@ function getNameByStatusId($id) {
     return $res->fetch()[0];
 }
 
-function user_new($data, $mode = "simple") {
-    $db = openBDD();
+//echo getRoleIdByName('troufion');
+//echo getNameByRoleId('2');
+
+function user_new($data) {//, $mode = "simple"
+    global $connexion_string;
+    global $login;
+    global $mdp;
+
     //variable pour la chaine de connexion PDO..
+    $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456');
     $query = "";
     $query .= user_insert() . ";";
     $query .= user_insert("log") . ";";
-    $query .= user_insert("role") . ";";
-    $query .= user_insert("status");
+    if(isset($_POST["status"]) && $_POST["status"]!="Vide")
+    {
+        $query .= user_insert("status") . ";";
+    }
+    
+    if(isset($_POST["role"]) && $_POST["role"]!="Vide")
+    {
+        $query .= user_insert("role") . ";";
+    }
+
+    
 
     //print_r($query);
     // si $mode = complet 
@@ -133,21 +153,29 @@ function user_new($data, $mode = "simple") {
 
     $req_membre = $bdd->prepare($query);
 
-    $test = $req_membre->execute(array(
-        ':nom' => $data['nom'],
-        ':prenom' => $data['prenom'],
-        ':telephone' => $data['telephone'],
-        ':mail' => $data ['mail'],
-        ':date_inscription' => $data['date_inscription'],
-        ':date_naissance' => $data['date_naissance'],
-        ':sexe' => $data['sexe'],
-        ':log' => $data['log'],
-        ':mdp' => $data['mdp'],
-        ':role' => $data['role'],
-        ':status' => $data['status'],
+    $tmp = $req_membre->execute(array(
+        'nom' => $data['nom'],
+        'prenom' => $data['prenom'],
+        'telephone' => $data['telephone'],
+        'mail' => $data ['mail'],
+        'date_inscription' => $data['date_inscription'],
+        'date_naissance' => $data['date_naissance'],
+        'sexe' => $data['sexe'],
+        'log' => $data['log'],
+        'mdp' => $data['mdp'],
+        'role' => $data['role'],
+        'status' => $data['status']
     ));
-
+    
+    /*echo '<br/>';
+    print_r($tmp);
+    echo 'error requete';
+    print_r($req_membre->errorInfo());
+    */
+    
     $bdd = null;
+    debug_php('testCOUCOU');
+    echo "Le membre à été ajouté avec succès!";
 }
 
 /* Fonction qui sert a inserer de nouvelle entrée */
@@ -168,7 +196,7 @@ function user_insert($table = "membre") {
 //supprime un utilisateur par son mail
 function user_delete($mail) {
     $db = openBDD();
-    $mail = $_POST['recup'];
+
     try {
         $sup = $db->exec("DELETE FROM `membre` WHERE mail='$mail'");
     } catch (PDOException $e) {
@@ -176,10 +204,8 @@ function user_delete($mail) {
     }
     $db = null;
 }
-// si info = user_delete
-user_delete($mail);
->>>>>>> branch 'master' of https://github.com/AformacWEBDEV3brive1/association.git
-// sinon rien
+
+//user_delete('yves.laurent@hotmil.com');
 ?>
 
 
