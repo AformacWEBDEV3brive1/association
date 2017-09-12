@@ -116,7 +116,7 @@ function getNameByStatusId($id) {
     $db = null;
     
     return $res->fetch()[0];
-}qsmw
+}
 
 //echo getRoleIdByName('troufion');
 //echo getNameByRoleId('2');
