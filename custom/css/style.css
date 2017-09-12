@@ -1,83 +1,64 @@
-/*
-Error: Undefined variable: "$bleu_pale".
-        on line 2 of global.scss
-        from line 3 of base.scss
+body {
+  background-color: #81DAF5; }
 
-1: // $ cd path_association_project
-2: // $ sass --watch custom/css/sass/base.scss:custom/css/style.css
-3: @import "global.scss";
-4: @import "mobile/color.scss";
-5: @import "mobile/global.scss";
-6: 
-7: @media screen and (min-width: 768px){
+#nav_bar .cache {
+  display: none; }
 
-Backtrace:
-global.scss:2
-base.scss:3
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/script/tree/variable.rb:49:in `_perform'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/script/tree/node.rb:50:in `perform'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `with_base'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `visit'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `map'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `with_base'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `visit'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:329:in `block (2 levels) in visit_import'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:329:in `map'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:329:in `block in visit_import'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/stack.rb:88:in `block in with_import'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/stack.rb:88:in `with_import'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:326:in `visit_import'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `with_base'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `visit'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `map'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:161:in `visit'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:10:in `visit'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/root_node.rb:36:in `css_tree'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/engine.rb:307:in `render_with_sourcemap'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:209:in `each'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:443:in `on_file_changed'
-/var/lib/gems/2.3.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:320:in `block in watch'
-/var/lib/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/config.rb:23:in `call'
-/var/lib/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:115:in `_process_changes'
-/var/lib/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:19:in `block in loop_for'
-/var/lib/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop'
-/var/lib/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop_for'
-/var/lib/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:84:in `_wait_for_changes'
-/var/lib/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:42:in `block in setup'
-/var/lib/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/internals/thread_pool.rb:6:in `block in add'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined variable: \"$bleu_pale\".\A         on line 2 of global.scss\A         from line 3 of base.scss\A \A 1: // $ cd path_association_project\A 2: // $ sass --watch custom/css/sass/base.scss:custom/css/style.css\A 3: @import \"global.scss\";\A 4: @import \"mobile/color.scss\";\A 5: @import \"mobile/global.scss\";\A 6: \A 7: @media screen and (min-width: 768px){"; }
+#nav_bar .visible {
+  display: block; }
+
+body {
+  background-color: #81DAF5; }
+
+#formulaire {
+  margin-top: 2%; }
+  #formulaire h1 {
+    text-align: center;
+    margin-bottom: 5%; }
+  #formulaire input {
+    border-radius: 5px; }
+  #formulaire .row {
+    margin-bottom: 2%; }
+
+.titre_colonne {
+  width: 100%; }
+
+#accueil .taille_photo {
+  width: 100%; }
+#accueil .background_message {
+  background-color: #0F9DE8;
+  color: #81DAF5;
+  border-radius: 8%; }
+#accueil .espace_message {
+  margin-top: 4%;
+  margin-bottom: 4%;
+  border-radius: 2%; }
+#accueil .espace h1 {
+  padding: 2%; }
+
+#nav_bar .cache {
+  display: none; }
+
+#nav_bar .visible {
+  display: block; }
+
+@media screen and (min-width: 768px) {
+  body {
+    background-color: #81DAF5; }
+
+  #nav_bar .cache {
+    display: none; }
+
+  #nav_bar .visible {
+    display: block; } }
+@media screen and (min-width: 992px) {
+  body {
+    background-color: #81DAF5; }
+
+  #nav_bar .cache {
+    display: none; }
+
+  #nav_bar .visible {
+    display: block; } }
+
+/*# sourceMappingURL=style.css.map */
