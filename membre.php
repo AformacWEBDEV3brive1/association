@@ -1,12 +1,14 @@
 <?php
-
+include 'includes/parameters.php';
 include 'includes/header.php'; //inclusion de l'header dans toute les pages.
+
 ?>
 
 
 <body>
     <?php
     include 'includes/nav_bar.php'; //inclusion de la la nav bar dans toute les pages.
+    include 'includes/test_log.php';
     ?>
 
 
@@ -20,7 +22,7 @@ on récupère le mail dans l'adresse et on fait une requête pour obtenir les in
 if(isset($_GET['mail']))
 {
 
-         $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456789$');
+         //$bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456789$');
 
         $reponse = $bdd->query('SELECT * FROM membre WHERE mail = "' . $_GET['mail'] . '"');
 

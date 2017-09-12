@@ -53,11 +53,7 @@ if (isset($_POST['username']) && isset($_POST['password'])){ //si les champs son
             header('Location: ../index.php');
             exit;
         }
-        //on ouvre une session pour envoyer un message d'erreur sur index.php
-        session_start();
-        $_SESSION['log']="<div class='alert alert-success' ><p>Log/mdp Valide</p></div>";
-        header('Location: ../index.php');
-        exit;
+       
         
     } else {
         session_start();
