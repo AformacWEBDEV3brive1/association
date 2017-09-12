@@ -122,13 +122,6 @@ function getNameByStatusId($id) {
 //echo getNameByRoleId('2');
 
 function user_new($data) {
-    
-
-    //$bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', 'mega6*3zd');
-    //global $connexion_string;
-    //global $login;
-    //global $mdp;
-    //$bdd = new PDO($connexion_string, $login, $mdp);
     $bdd = openBDD();
     $query = "";
     $query .= user_insert() . ";";
