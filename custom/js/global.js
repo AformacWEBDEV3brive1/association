@@ -50,7 +50,7 @@ function user_ajout() {
     var dateI = ($('#dateInscription').data('datepicker').dates[0].getTime())/1000;
     var dateN = ($('#dateNaissance').data('datepicker').dates[0].getTime())/1000;
 
-    $.ajax({url: 'add_member.php',
+    $.ajax({url: 'includes/add_member.php',
         type: 'post',
         data: {info: 'getForm',
             log: $('#log').val(),

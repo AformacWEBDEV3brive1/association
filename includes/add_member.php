@@ -1,13 +1,14 @@
 <?php
 
-include 'debug.php';
+include '../debug.php';
+include '../parameters.php';
 debug_php('debug1111');
 //echo 'coucou';
 debug_php('debug2222');
 $info = $_POST['info'];
 $info();
 //appel du fichier où  sont enregistrés les chaines de connexion
-include 'parameters.php';
+
 
 //appel de la fonction getForm pour recuperer les valeurs du formulaire
 //getForm();
@@ -42,7 +43,7 @@ function getForm() {
  'prenom' => 'laurent',
  'telephone' => '0748995500',
  'mail' => 'yves.laurent@gmail.com',
- 'date_inscription' => '123456789',
+ 'date_inscription' => 'qsmw123456789',
  'date_naissance' => '987654321',
  'sexe' => 'M',
  'log' => 'yvesl',
@@ -115,12 +116,19 @@ function getNameByStatusId($id) {
     $db = null;
     
     return $res->fetch()[0];
-}
+}qsmw
 
 //echo getRoleIdByName('troufion');
 //echo getNameByRoleId('2');
 
-function user_new($data) {//, $mode = "simple"
+function user_new($data) {
+    
+
+    //$bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', 'mega6*3zd');
+    //global $connexion_string;
+    //global $login;
+    //global $mdp;
+    //$bdd = new PDO($connexion_string, $login, $mdp);
     $bdd = openBDD();
     $query = "";
     $query .= user_insert() . ";";

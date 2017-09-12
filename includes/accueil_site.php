@@ -1,6 +1,6 @@
 <?php
 
-include '../parameters.php';
+include 'parameters.php';
 
 if (isset($_POST['info'])) {
     $info = $_POST['info'];
