@@ -7,8 +7,7 @@ include 'includes/nav_bar.php'; //inclusion de la la nav bar dans toute les page
 
 <body>
     <?php
-    session_start();
-    echo $_SESSION['mess_err'];
+    
     
     //on detruit la session aprés reception du message. 
        if ($_SESSION['log'] == null) {
