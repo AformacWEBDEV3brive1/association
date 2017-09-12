@@ -56,7 +56,7 @@ function getForm() {
 
 //ouvre la base de donnée
 function openBDD() {
-    $BDD = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456');
+    $BDD = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', 'mega6*3zd');
     return $BDD;
 }
 
@@ -131,7 +131,7 @@ function user_new($data) {//, $mode = "simple"
     global $mdp;
 
     //variable pour la chaine de connexion PDO..
-    $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456');
+    $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', 'mega6*3zd');
     $query = "";
     $query .= user_insert() . ";";
     $query .= user_insert("log") . ";";

@@ -47,8 +47,8 @@ function generate_filtres() {
 }
 
 function user_ajout() {
-    var dateI = $('#dateInscription').data('datepicker').dates[0].getTime();
-    var dateN = $('#dateNaissance').data('datepicker').dates[0].getTime();
+    var dateI = ($('#dateInscription').data('datepicker').dates[0].getTime())/1000;
+    var dateN = ($('#dateNaissance').data('datepicker').dates[0].getTime())/1000;
 
     $.ajax({url: 'add_member.php',
         type: 'post',
