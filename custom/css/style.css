@@ -1,3 +1,6 @@
+body {
+  background-color: #81DAF5; }
+
 #nav_bar .cache {
   display: none; }
 
@@ -21,33 +24,57 @@ body {
   width: 100%; }
 
 #accueil .taille_photo {
-  width: 100%; }
+  width: 100%;
+  height: 100%; }
 #accueil .background_message {
   background-color: #0F9DE8;
-  color: #81DAF5;
-  border-radius: 8%; }
+  color: #81DAF5; }
 #accueil .espace_message {
   margin-top: 4%;
   margin-bottom: 4%;
   border-radius: 2%; }
 #accueil .espace h1 {
   padding: 2%; }
+
 #nav_bar .cache {
   display: none; }
 
 #nav_bar .visible {
   display: block; }
 
+.numb {
+  display: none; }
+
+.email {
+  display: none; }
+
+.sexe {
+  display: none; }
+
+.dateN {
+  display: none; }
+
+.age {
+  display: none; }
+
+.pencil, .trash, .envelope, .infos {
+  margin-left: 5%; }
+
 @media screen and (min-width: 768px) {
   body {
-    background-color: #81DAF5; } 
-    background-color: #F2F5A9; }
+    background-color: #81DAF5; }
 
   #nav_bar .cache {
     display: none; }
 
   #nav_bar .visible {
-    display: block; } 
+    display: block; }
+
+  .numb, .email, .dateI, .age, .nom, .prenom {
+    display: block; }
+
+  .email, .numb {
+    word-wrap: break-word; } }
 @media screen and (min-width: 992px) {
   body {
     background-color: #81DAF5; }
@@ -56,6 +83,9 @@ body {
     display: none; }
 
   #nav_bar .visible {
-    display: block; } }
+    display: block; }
+
+  .email {
+    text-align: center; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -7,6 +7,7 @@ if (isset($_POST['info'])) {
     $info();
 }
 
+            
 function liste() {
 
 //recuperation des infos de la base de données
@@ -28,15 +29,25 @@ function liste() {
         else{
             $date_n = '';
         }
-        $data = '<td class="col-1 col-md-1">' . $donnees['nom'] .
-        '</td> <td class="col-1 col-md-1">' . $donnees['prenom'] .
-        '</td> <td class="col-2 col-md-2">' . $donnees['telephone'] .
-        '</td> <td class="col-2 col-md-2 retour">' . $donnees['mail'] .
-        '</td><td class="col-2 col-md-2">' . $date_i .
-        '</td><td class="col-2 col-md-2">' . $date_n .
-        '</td> <td class="col-1 col-md-1">' . $donnees['sexe'] .
-        '</td> <td class="col-1 col-md-1"> <a href="membre.php?mail=' . $donnees['mail'] .
-        '" > Details </a> </td>';
+
+        $data = '<td class="col-2  col-md-1 col-lg-1 ">'. substr($donnees['nom'], 0, 5) .'</td> '
+                . '<td class="col-2 col-md-1 col-lg-1 ">' . $donnees['prenom'] . '</td> '
+                . '<td class="col-md-2 numb col-lg-2 ">' . $donnees['telephone'] . '</td> '
+                . '<td class="col-md-3 col-lg-2  retour email">' . $donnees['mail'] . '</td>'
+                . '<td class="col-3 col-md-2 col-lg-2 dateI">' . $date_i . '</td>'
+                . '<td class="  dateN">' . $date_n . '</td> '
+                . '<td class="  sexe">' . $donnees['sexe'] . '</td> '
+                . '<td class=" col-md-1 col-lg-1 age">' . $donnees['age'] . '</td> '
+                . '<td class="col-5 col-md-2 col-lg-3  actions">
+                    <div class="row">
+                <a class="fa fa-info fa-2x infos" href="membre.php?mail=' . $donnees['mail'] . '"></a>
+                <a href="index.php" class=" fa fa-envelope-o fa-2x envelope" ></a>                
+                <a href="index.php" class="  fa fa-trash fa-2x trash ' . '" ></a>
+                
+                <a href="index.php" class=" fa fa-pencil-square-o fa-2x pencil" ></a>
+                </td>
+              </div> ';
+
         $html_tab = render($data);
         echo $html_tab;
     }
@@ -140,7 +151,7 @@ function filter_nom_prenom() {
                 '</td><td class="col-2 col-md-2">' . $date_n . 
                 '</td> <td class="col-1 col-md-1">' . $donnees['sexe'] . 
                 '</td> <td class="col-1 col-md-1"> <a href="membre.php?mail=' . $donnees['mail'] . 
-                '" > Details </a> </td>';
+                '" > Details </a> </td>'
         $html_tab = render($data);
         echo $html_tab;
     }
