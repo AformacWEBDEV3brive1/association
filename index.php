@@ -39,23 +39,25 @@ include 'includes/nav_bar.php'; //inclusion de la la nav bar dans toute les page
 
     <?php $res = affiche_accueil(); ?>
 
-    <div class="container">
-        <div id='accueil'>
-            
-            <h1 class="text-center"> <?php echo $res['titre']; ?> </h1>
-            
-            <img class="taille_photo" src="<?php echo $res['photo']; ?>" />
-            <div class="espace_message">
-            <h1 class="background_message"> <?php echo $res['message']; ?> </h1>
+        <div class="container">
+        <div class="row" id='accueil'>
+
+            <h1 class="col-12 text-center"> <?php echo $res['titre']; ?> </h1>
+
+            <img class="col-12 taille_photo" class="image1" src="<?php echo $res['photo']; ?>" />
+            <div class="col-12 espace_message">
+                <h1 class="background_message"> <?php echo $res['message']; ?> </h1>
             </div>
+
+            <img class="col-12 taille_photo"src=" <?php echo $res['image'] ?>" />
             
-            <img class="taille_photo"src=" <?php echo $res['image'] ?>" />
-            
-            <a href=" <?php echo $res['reseaux'] ?> "> Facebook </a>
-            
+            <a class="col-6 offset-3 text-center" href=" <?php echo $res['reseaux'] ?>"> 
+                <i class="fa fa-4x fa-facebook-square" aria-hidden="true" ></i> </a>
 
         </div>
+
     </div>
+
     
     
         
