@@ -94,7 +94,7 @@ function user_delete() {
 }
 
 
-//genere l'accueil.
+//genere l'accueil. Non utilisée, a virer.
 function generate_accueil() {
 
     $.ajax({url: '/association/includes/accueil_site.php',
