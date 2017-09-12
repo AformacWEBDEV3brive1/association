@@ -1,15 +1,8 @@
-<?php
-include 'includes/header.php'; // inclusion de l'header dans toute les pages.
-?>
-
-
-<body onload="generate_accueil()">
-    <?php
-    include 'includes/nav_bar.php'; // inclusion de la la nav bar dans toute les pages.
-        
-    if ($_SESSION['log'] == null) {
-        session_destroy();
-        ?>
+<?php 
+if ($_SESSION['log'] == null) {
+    session_destroy();
+   // header('Location: index.php');exit;
+    ?>
        <script>
        cacher();
        </script>       
@@ -22,21 +15,16 @@ include 'includes/header.php'; // inclusion de l'header dans toute les pages.
        </script>       
        <?php
         session_destroy();
-        // on detruit la session aprés reception du message.
+       // header('Location: index.php');   exit;
+       
     } else {
         $_SESSION['log'];
+        
         ?>
        <script>
        afficher();
        </script>       
        <?php
     }
-    
-    ?>
 
-    <div id='accueil'></div>
-
-</body>
-
-
-</html>
+?>

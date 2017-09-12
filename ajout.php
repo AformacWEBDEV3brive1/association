@@ -6,24 +6,25 @@ include 'includes/header.php';
 
     <?php
     include 'includes/nav_bar.php';
+    include 'includes/test_log.php';
     ?>
 
     <div id="ajout"> 
 
     </div>
 
-    
+
     <form id="formulaire" method="post">
         <div id="question" class="container">
             <h1>Ajouter un membre</h1>
-            
+
             <div class="row">
                 <div class="col-md-3"></div>
                 <label class="col-12 col-md-2">Login: </label>
                 <input id="log" class="col-12 col-md-4" type="text" name="log" />
                 <div class="col-md-3"></div>
             </div>
-            
+
             <div class="row">
                 <div class="col-md-3"></div>
                 <label class="col-12 col-md-2">Nom: </label>
@@ -44,7 +45,7 @@ include 'includes/header.php';
                 <input id="mdp" class="col-12 col-md-4" type="password" name="mdp" />
                 <div class="col-md-3"></div>
             </div>
-            
+
             <div class="row">
                 <div class="col-md-3"></div>
                 <label class="col-12 col-md-2">Téléphone: </label>
@@ -83,20 +84,24 @@ include 'includes/header.php';
                 </select>
                 <div class="col-md-3"></div>
             </div>
-            
+
             <div class="row">
                 <div class="col-md-3"></div>
                 <label class="col-12 col-md-2">Rôle: </label>
                 <select id="role" class="col-12 col-md-4" name="role">
-                    <option value="Vide"></option>
+                    <?php
+                        include 'includes/roles_and_status.php';
+                        
+                    ?>
+                    <!--<option value="Vide"></option>
                     <option value="0">Administrateur</option>
                     <option value="1">Modérateur</option>
                     <option value="2">Trouffion</option>
-                    <option value="3">Bénévole</option>
+                    <option value="3">Bénévole</option>-->
                 </select>
                 <div class="col-md-3"></div>
             </div>
-            
+
             <div class="row">
                 <div class="col-md-3"></div>
                 <label class="col-12 col-md-2">Statut: </label>
@@ -110,7 +115,7 @@ include 'includes/header.php';
                 </select>
                 <div class="col-md-3"></div>
             </div>
-            
+
             <div class="row">
                 <input id="envoyer" onclick="user_ajout()" class="offset-7 col-md-2" type="button" value="Valider"/>
             </div>

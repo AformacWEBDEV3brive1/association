@@ -20,3 +20,10 @@ body{
 .titre_colonne{
     width:100%;
 }
+//class lier aux fonctions afficher()/cacher()
+#nav_bar .cache{
+	display:none;
+	}
+#nav_bar .visible{
+	display:block;
+	}
