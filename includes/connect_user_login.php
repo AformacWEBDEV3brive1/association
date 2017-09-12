@@ -2,21 +2,9 @@
 <?php
 echo 'coucou';
 
-include 'parameters.php';
+include '../parameters.php';
 
-echo ' bouffon';
-
-global $connexion_string;
-echo ' cornemuse';
-
-global $login;
-echo ' manchot';
-
-global $mdp;
-echo ' slip';
-
-$bdd = new PDO($connexion_string, $login, $mdp);
-echo ' guitare';
+$bdd = openBDD();
 
 $acces = false;
 /* These are our valid username and passwords */

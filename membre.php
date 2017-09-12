@@ -19,8 +19,7 @@ on récupère le mail dans l'adresse et on fait une requête pour obtenir les in
 
 if(isset($_GET['mail']))
 {
-
-         $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', 'mega6*3zd');
+        $bdd = openBDD();
 
         $reponse = $bdd->query('SELECT * FROM membre WHERE mail = "' . $_GET['mail'] . '"');
 

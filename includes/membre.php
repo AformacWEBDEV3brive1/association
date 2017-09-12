@@ -1,5 +1,5 @@
 <?php
-include 'includes/parameters.php';
+include '../parameters.php';
 
 include 'includes/header.php'; //inclusion de l'header dans toute les pages.
 ?>
@@ -17,11 +17,9 @@ include 'includes/header.php'; //inclusion de l'header dans toute les pages.
     /* pour l'instant le mail sert d'identifiant mais il faudrait travailler avec un vrai id;
       on récupère le mail dans l'adresse et on fait une requête pour obtenir les infos du membre */
 
+    
     if (isset($_GET['mail'])) {
-        global $connexion_string;
-        global $login;
-        global $mdp;
-        $bdd = new PDO($connexion_string, $login, $mdp);
+        $bdd = openBDD();
 
         $reponse = $bdd->query('SELECT * FROM membre WHERE mail = "' . $_GET['mail'] . '"');
 

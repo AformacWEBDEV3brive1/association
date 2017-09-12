@@ -2,16 +2,6 @@
 
 include 'parameters.php';
 
-function openBDD()
-{
-    global $connexion_string;
-    global $login;
-    global $mdp;
-    $bdd = new PDO($connexion_string, $login, $mdp);
-    return $bdd; 
-}
-
-
 function display_roles(){
     $bdd = openBDD();
     

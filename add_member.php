@@ -54,11 +54,6 @@ function getForm() {
   //user_new($data);
   } */
 
-//ouvre la base de donnée
-function openBDD() {
-    $BDD = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', 'mega6*3zd');
-    return $BDD;
-}
 
 //récupere l'Id du role a partir du nom du role
 function getRoleIdByName($nom) {
@@ -126,12 +121,7 @@ function getNameByStatusId($id) {
 //echo getNameByRoleId('2');
 
 function user_new($data) {//, $mode = "simple"
-    global $connexion_string;
-    global $login;
-    global $mdp;
-
-    //variable pour la chaine de connexion PDO..
-    $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', 'mega6*3zd');
+    $bdd = openBDD();
     $query = "";
     $query .= user_insert() . ";";
     $query .= user_insert("log") . ";";

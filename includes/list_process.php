@@ -1,6 +1,6 @@
 <?php
 
-include 'parameters.php';
+include '../parameters.php';
 
 if (isset($_POST['info'])) {
     $info = $_POST['info'];
@@ -15,10 +15,7 @@ function liste() {
 
 
 
-    global $connexion_string;
-    global $login;
-    global $mdp;
-    $bdd = new PDO($connexion_string, $login, $mdp);
+    $bdd = openBDD();
 
 
     $reponse = $bdd->query('SELECT * FROM membre');
@@ -35,10 +32,7 @@ function render(/* $query, $style = "table" */$donnees) {//met sous forme de tab
 }
 
 function filter_nom_prenom() {
-    global $connexion_string;
-    global $login;
-    global $mdp;
-    $bdd = new PDO($connexion_string, $login, $mdp);
+    $bdd = openBDD();
     if (isset($_POST['filter']) && isset($_POST['value'])) {
         /* valeur du select */
         $filter = $_POST['filter'];
