@@ -177,9 +177,7 @@ function user_delete($mail) {
     $db = null;
 }
 // si info = user_delete
-user_delete($mail);
->>>>>>> branch 'master' of https://github.com/AformacWEBDEV3brive1/association.git
-// sinon rien
+user_delete($mail);// sinon rien
 ?>
 
 

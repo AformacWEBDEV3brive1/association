@@ -27,3 +27,22 @@ body{
 #nav_bar .visible{
 	display:block;
 	}
+        .numb {
+            display : none;
+        }
+        .email{
+            display : none;
+        }
+        .sexe{
+            display : none;
+        }
+        
+        .dateN{
+            display : none;
+        }
+        .age{
+            display:none;
+        }
+        .pencil, .trash, .envelope, .infos{
+            margin-left:5%;
+        }

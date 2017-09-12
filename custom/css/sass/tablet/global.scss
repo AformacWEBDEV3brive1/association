@@ -3,8 +3,18 @@ body{
 }
 //class lier aux fonctions afficher()/cacher()
 #nav_bar .cache{
-	display:none;
-	}
+    display:none;
+}
 #nav_bar .visible{
-	display:block;
-	}
+    display:block;
+}
+.numb, .email, .dateI, .age, .nom, .prenom {
+    display: block; 
+    
+}
+.email, .numb{
+    word-wrap: break-word;
+}
+
+
+
