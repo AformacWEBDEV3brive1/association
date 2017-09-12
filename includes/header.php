@@ -4,6 +4,7 @@
     <head>
     	<?php  session_start();?>
         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title></title>
         <!-- libraries css-->
         <link type="text/css" rel="stylesheet" href="libraries/tether/dist/css/tether.css">

@@ -39,16 +39,18 @@ include 'includes/header.php';
     
         <div class='container titre_colonne retour'>
             <!-- remplacement de l'ancienne div par une table pour pouvoir utiliser facilement la librairie sorttable-->
-            <table class='tableau sortable'>
+            <table class='tableau sortable col-lg-12'>
                 <tr class="row">
-                    <th class='col-1 col-md-1'>Nom</th>
-                    <th class='col-1 col-md-1'>Prenom</th>
-                    <th class='col-2 col-md-2'>Numero</th>
-                    <th class='col-2 col-md-2'>Email</th>
-                    <th class='col-2 col-md-2'>DateI</th>
-                    <th class='col-2 col-md-2'>DateN</th>
-                    <th class='col-1 col-md-1'>Sexe</th>
-                    <th class='col-1 col-md-1'>Details</th>
+                    <th class='col-2 col-md-1 col-lg-1 nom'>Nom</th>
+                    <th class='col-2 col-md-1 col-lg-1'>Prenom</th>
+                    <th class='col-md-2 numb col-lg-2'>Numero</th>
+                    <th class='col-md-3 email col-lg-2'>Email</th>
+                    <th class='col-3 col-md-2 col-lg-2'>Inscription</th>
+                    <th class=' dateN'>DateN</th>
+                    <th class=' sexe'>Sexe</th>
+                    <th class='col-md-1 age col-lg-1'>Age</th>
+                    <th class='col-5 col-md-2 col-lg-3 actions'>Actions</th>
+                    
                 </tr>
             </table>
         </div>
