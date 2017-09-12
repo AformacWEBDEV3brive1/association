@@ -16,7 +16,7 @@
                     <li class="nav-item">
                         <a class="nav-link cache" href="list.php"> Liste</a>
                     </li>
-                    <form class="form-inline my-2 my-lg-0"method = "post" action="connect_user_login.php">
+                    <form class="form-inline my-2 my-lg-0"method = "post" action="./includes/connect_user_login.php">
       <input class="form-control mr-sm-2 visible" type="text" name ="username" placeholder="log">
       <input class="form-control mr-sm-2 visible" type="text" name="password" placeholder="mdp">
       <button class="form-control visible btn btn-outline-success my-2 my-sm-0" type="submit">OK</button>

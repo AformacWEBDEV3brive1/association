@@ -1,10 +1,10 @@
 body{
-    background-color: $vert_pale;
+    background-color: $bleu_pale;
 }
 
 #formulaire{
     margin-top: 2%;
-    
+
     h1{
         text-align: center;
         margin-bottom: 5%;
@@ -20,6 +20,30 @@ body{
 .titre_colonne{
     width:100%;
 }
+
+#accueil {
+    .taille_photo{
+        width:100%; 
+        height: 100%;
+    }
+    .background_message{
+        background-color: $back_message;
+        color: $bleu_pale;
+    }
+    .espace_message{
+        margin-top: 4%;
+        margin-bottom: 4%;
+        border-radius: 2%;
+    }
+    
+    .espace h1{
+        padding: 2%;
+        
+    }
+    
+
+} 
+
 //class lier aux fonctions afficher()/cacher()
 #nav_bar .cache{
 	display:none;
