@@ -1,13 +1,14 @@
 <?php
 
-include 'debug.php';
+include '../debug.php';
+include '../parameters.php';
 debug_php('debug1111');
 //echo 'coucou';
 debug_php('debug2222');
 $info = $_POST['info'];
 $info();
 //appel du fichier où  sont enregistrés les chaines de connexion
-include 'parameters.php';
+
 
 //appel de la fonction getForm pour recuperer les valeurs du formulaire
 //getForm();
@@ -37,42 +38,37 @@ function getForm() {
 
 // informations en durs pour simuler un formulaire :
 /* function getForm() {
-  $data = array(
-  'nom' => 'yves',
-  'prenom' => 'laurent',
-  'telephone' => '0748995500',
-  'mail' => 'yves.laurent@gmail.com',
-  'date_inscription' => '123456789',
-  'date_naissance' => '987654321',
-  'sexe' => 'M',
-  'log' => 'yvesl',
-  'mdp' => crypt('poiue31654','yves.laurent@gmail.com'),
-  'role' => '2',
-  'status' => '4',
-  );
-  //print_r($data);
-  //user_new($data);
-  } */
+ $data = array(
+ 'nom' => 'yves',
+ 'prenom' => 'laurent',
+ 'telephone' => '0748995500',
+ 'mail' => 'yves.laurent@gmail.com',
+ 'date_inscription' => 'qsmw123456789',
+ 'date_naissance' => '987654321',
+ 'sexe' => 'M',
+ 'log' => 'yvesl',
+ 'mdp' => crypt('poiue31654','yves.laurent@gmail.com'),
+ 'role' => '2',
+ 'status' => '4',
+ );
+ //print_r($data);
+ //user_new($data);
+ } */
 
-//ouvre la base de donnée
-function openBDD() {
-    $BDD = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456');
-    return $BDD;
-}
 
 //récupere l'Id du role a partir du nom du role
 function getRoleIdByName($nom) {
-    try {//essaie de lancer les instructions 
+    try {//essaie de lancer les instructions
         $db = openBDD();
-
+        
         $res = $db->query("SELECT id FROM role_id WHERE nom = '$nom'");
     } catch (PDOExeption $e) {//retourne le message d'erreur
         echo $e->getMessage();
     }
     //ferme la base de donnée
     $db = null;
-
-    //retourne la 1° valeur du resultat 
+    
+    //retourne la 1° valeur du resultat
     return $res->fetch()[0];
 }
 
@@ -80,30 +76,30 @@ function getRoleIdByName($nom) {
 function getNameByRoleId($id) {
     try {
         $db = openBDD();
-
+        
         $res = $db->query("SELECT nom FROM role_id WHERE id='$id'");
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
-
+    
     $db = null;
-
+    
     return $res->fetch()[0];
 }
 
 //récupere l'Id du statut a partir du nom du statut
 function getStatusIdByName($status) {
-    try {//essaie de lancer les instructions 
+    try {//essaie de lancer les instructions
         $db = openBDD();
-
+        
         $res = $db->query("SELECT id FROM status_id WHERE status = '$status'");
     } catch (PDOExeption $e) {//retourne le message d'erreur
         echo $e->getMessage();
     }
     //ferme la base de donnée
     $db = null;
-
-    //retourne la 1° valeur du resultat 
+    
+    //retourne la 1° valeur du resultat
     return $res->fetch()[0];
 }
 
@@ -111,27 +107,22 @@ function getStatusIdByName($status) {
 function getNameByStatusId($id) {
     try {
         $db = openBDD();
-
+        
         $res = $db->query("SELECT status FROM status_id WHERE id='$id'");
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
-
+    
     $db = null;
-
+    
     return $res->fetch()[0];
 }
 
 //echo getRoleIdByName('troufion');
 //echo getNameByRoleId('2');
 
-function user_new($data) {//, $mode = "simple"
-    global $connexion_string;
-    global $login;
-    global $mdp;
-
-    //variable pour la chaine de connexion PDO..
-    $bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456');
+function user_new($data) {
+    $bdd = openBDD();
     $query = "";
     $query .= user_insert() . ";";
     $query .= user_insert("log") . ";";
@@ -144,15 +135,15 @@ function user_new($data) {//, $mode = "simple"
     {
         $query .= user_insert("role") . ";";
     }
-
     
-
+    
+    
     //print_r($query);
-    // si $mode = complet 
-    // alors concatener $query à un insert qui insert dans les tables status et role 
-
+    // si $mode = complet
+    // alors concatener $query à un insert qui insert dans les tables status et role
+    
     $req_membre = $bdd->prepare($query);
-
+    
     $tmp = $req_membre->execute(array(
         'nom' => $data['nom'],
         'prenom' => $data['prenom'],
@@ -168,10 +159,10 @@ function user_new($data) {//, $mode = "simple"
     ));
     
     /*echo '<br/>';
-    print_r($tmp);
-    echo 'error requete';
-    print_r($req_membre->errorInfo());
-    */
+     print_r($tmp);
+     echo 'error requete';
+     print_r($req_membre->errorInfo());
+     */
     
     $bdd = null;
     debug_php('testCOUCOU');
@@ -182,7 +173,7 @@ function user_new($data) {//, $mode = "simple"
 
 function user_insert($table = "membre") {
     if ($table == "membre") {//insert dans la table membre
-        return "INSERT INTO membre(nom, prenom, telephone, mail, date_inscription, date_naissance, sexe) 
+        return "INSERT INTO membre(nom, prenom, telephone, mail, date_inscription, date_naissance, sexe)
            VALUES (:nom, :prenom, :telephone, :mail, :date_inscription, :date_naissance, :sexe)";
     } else if ($table == "log") {//insert dans la table log
         return "INSERT INTO log(log, mdp, mail) VALUES (:log, :mdp, :mail)";
@@ -196,7 +187,7 @@ function user_insert($table = "membre") {
 //supprime un utilisateur par son mail
 function user_delete($mail) {
     $db = openBDD();
-
+    
     try {
         $sup = $db->exec("DELETE FROM `membre` WHERE mail='$mail'");
     } catch (PDOException $e) {

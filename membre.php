@@ -1,5 +1,8 @@
 <?php
-include 'includes/parameters.php';
+
+
+include 'parameters.php';
+
 include 'includes/header.php'; //inclusion de l'header dans toute les pages.
 
 ?>
@@ -22,12 +25,38 @@ on récupère le mail dans l'adresse et on fait une requête pour obtenir les in
 if(isset($_GET['mail']))
 {
 
-         //$bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456789$');
+
+        $bdd = openBDD();
+
 
         $reponse = $bdd->query('SELECT * FROM membre WHERE mail = "' . $_GET['mail'] . '"');
 
         while ($donnees = $reponse->fetch()) {
-         echo 'Nom: ' . $donnees['nom'] . '<br/> Prénom: ' . $donnees['prenom'] . '<br/> Téléphone: ' . $donnees['telephone'] . '<br/> Mail: ' . $donnees['mail'] . "<br/> Date d'inscription: " . $donnees['date_inscription'] . '<br/> Date de naissance: ' . $donnees['date_naissance'] . '<br/> Sexe: ' . $donnees['sexe'];
+            $date_i = date('d/m/Y',$donnees['date_inscription']);
+            if($donnees['date_naissance'] != ''){
+                $date_n = date('d/m/Y',$donnees['date_naissance']);
+                echo $donnees['date_naissance'].'<br/>';
+                
+                $date_a= time();
+                
+                echo $date_a;
+                $age=$date_a-$donnees['date_naissance'];
+                $date_age = (((($age/60)/60)/24)/365);
+                $age_vrai= '<br/> Age: ' . floor($date_age);
+            }
+            else{
+                $date_n = '';
+            }
+            
+         echo 'Nom: ' . $donnees['nom'] .
+         '<br/> Prénom: ' . $donnees['prenom'] .
+         '<br/> Téléphone: ' . $donnees['telephone'] .
+         '<br/> Mail: ' . $donnees['mail'] .
+         "<br/> Date d'inscription: " . $date_i .
+         '<br/> Date de naissance: ' . $date_n .
+         '<br/> Sexe: ' . $donnees['sexe'].
+         $age_vrai;
+         
            
         }
 }

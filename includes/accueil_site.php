@@ -7,18 +7,6 @@ if (isset($_POST['info'])) {
     $info();
 }
 
-function openBDD() {
-
-    
-
-
-    global $connexion_string;
-    global $login;
-    global $mdp;
-    $BDD = new PDO($connexion_string, $login, $mdp);
-
-    return $BDD;
-}
 
 //fonction qui affiche l'accueil pas fini .
 function affiche_accueil() {

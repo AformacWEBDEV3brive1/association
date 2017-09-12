@@ -2,15 +2,9 @@
 <?php
 
 
-include 'parameters.php';
+include '../parameters.php';
 
-
-
-global $connexion_string;
-global $login;
-global $mdp;
-
-$bdd = new PDO($connexion_string, $login, $mdp);
+$bdd = openBDD();
 
 
 $acces = false;

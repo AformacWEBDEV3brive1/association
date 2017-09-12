@@ -92,6 +92,8 @@ include 'includes/header.php';
                     <?php
                         include 'includes/roles_and_status.php';
                         
+                        display_roles();
+                        
                     ?>
                     <!--<option value="Vide"></option>
                     <option value="0">Administrateur</option>
@@ -106,12 +108,17 @@ include 'includes/header.php';
                 <div class="col-md-3"></div>
                 <label class="col-12 col-md-2">Statut: </label>
                 <select id="status" class="col-12 col-md-4" name="status">
-                    <option value="Vide"></option>
+                    <!-- <option value="Vide"></option>
                     <option value="0">Directeur</option>
                     <option value="1">Sous-Directeur</option>
                     <option value="2">Trésorier</option>
                     <option value="3">Secrétaire</option>
-                    <option value="3">Bénévole</option>
+                    <option value="3">Bénévole</option> -->
+                    <?php
+                        
+                        display_status();
+                        
+                    ?>
                 </select>
                 <div class="col-md-3"></div>
             </div>
