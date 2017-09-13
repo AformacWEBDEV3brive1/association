@@ -1,6 +1,19 @@
 body{
     background-color: $bleu_pale;
 }
+
+#accueil #article.back_article{
+    .taille_photo{
+        width: 35%;
+    }
+    .hidden{
+        display: block;
+    }
+    .show{
+        display:none;
+    }
+}
+
 //class lier aux fonctions afficher()/cacher()
 #nav_bar .cache{
     display:none;
@@ -10,7 +23,7 @@ body{
 }
 .numb, .email, .dateI, .age, .nom, .prenom {
     display: block; 
-    
+
 }
 .email, .numb{
     word-wrap: break-word;

@@ -23,7 +23,7 @@ body {
 .titre_colonne {
   width: 100%; }
 
-#accueil .taille_photo {
+#accueil .taille {
   width: 100%;
   height: 100%; }
 #accueil .background_message {
@@ -31,10 +31,43 @@ body {
   color: #81DAF5; }
 #accueil .espace_message {
   margin-top: 4%;
-  margin-bottom: 4%;
-  border-radius: 2%; }
+  margin-bottom: 4%; }
 #accueil .espace h1 {
   padding: 2%; }
+#accueil #article.back_article {
+  background-color: yellow; }
+  #accueil #article.back_article .margin_titre {
+    margin-bottom: 25px; }
+  #accueil #article.back_article .taille {
+    width: 100%;
+    height: 100%; }
+  #accueil #article.back_article .margin_titre_article {
+    margin-top: 4%; }
+  #accueil #article.back_article .margin_photo_article {
+    margin-top: 2%; }
+  #accueil #article.back_article .taille_photo {
+    height: 50%;
+    width: 50%; }
+  #accueil #article.back_article .flotte {
+    float: right;
+    margin-right: 11px;
+    margin-left: 7px; }
+  #accueil #article.back_article .padding_contenu {
+    padding-left: 11px;
+    padding-right: 11px;
+    text-align: justify;
+    line-height: 26px; }
+  #accueil #article.back_article .padding {
+    padding-top: 10px; }
+  #accueil #article.back_article .police {
+    font-family: Times; }
+  #accueil #article.back_article .police_titre {
+    font-family: monospace;
+    font-variant-caps: small-caps; }
+  #accueil #article.back_article .hidden {
+    display: none; }
+  #accueil #article.back_article .show {
+    display: block; }
 
 #nav_bar .cache {
   display: none; }
@@ -63,6 +96,13 @@ body {
 @media screen and (min-width: 768px) {
   body {
     background-color: #81DAF5; }
+
+  #accueil #article.back_article .taille_photo {
+    width: 35%; }
+  #accueil #article.back_article .hidden {
+    display: block; }
+  #accueil #article.back_article .show {
+    display: none; }
 
   #nav_bar .cache {
     display: none; }
