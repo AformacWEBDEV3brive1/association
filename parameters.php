@@ -1,10 +1,10 @@
 <?php
 
-$linux_user= "omeagazord";
+$linux_user= "ezaltar";
 
 $connexion_string =  "mysql:host=127.0.0.1;dbname=association;charset=utf8";
 $login = "root";
-$mdp = "mega6*3zd";
+$mdp = "ezaltar";
 
 function openBDD()
 {
