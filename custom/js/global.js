@@ -3,8 +3,6 @@
 $(document).ready(function () {
     $("#dateInscription").datepicker();
     $("#dateNaissance").datepicker();
-
-
 });
 
 
@@ -13,9 +11,7 @@ function generate_tableau() {
     $.ajax({url: '/association/includes/list_process.php',
         type: 'post',
         data: {info: 'liste'},
-        // info est défini dans information.php, c'est une variable qui va chercher ce que l'ajax doit afficher,
-        // ici la fonction getTime coté serveur
-        success: function (output) { //les 2 mots dans les parenthèses doit être les mêmes.
+        success: function (output) {
             $(".tableauBody").append(output);
             $('.trash').click(function () {
                 if (confirm('Voulez-vous supprimer cet utilisateur ?')) {
