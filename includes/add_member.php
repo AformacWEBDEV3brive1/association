@@ -202,7 +202,6 @@ function user_delete() {
     $db = null;
 }
 
-//user_delete('yves.laurent@hotmil.com');
 ?>
 
 
