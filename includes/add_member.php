@@ -185,11 +185,12 @@ function user_insert($table = "membre") {
 }
 
 //supprime un utilisateur par son mail
-function user_delete($mail) {
+function user_delete() {
+   
     $db = openBDD();
     
     try {
-        $sup = $db->exec("DELETE FROM `membre` WHERE mail='$mail'");
+        $sup = $db->exec("DELETE FROM `membre` WHERE mail= '".$_POST['mail']."'");
     } catch (PDOException $e) {
         echo $e->getMessage();
     }

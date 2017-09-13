@@ -21,11 +21,12 @@ function liste() {
 
     $reponse = $bdd->query('SELECT * FROM membre');
 
+        $i = 0;
     while ($donnees = $reponse->fetch()) {
         $data = '<td class="col-2  col-md-1 col-lg-1 ">'. substr($donnees['nom'], 0, 5) .'</td> '
                 . '<td class="col-2 col-md-1 col-lg-1 ">' . $donnees['prenom'] . '</td> '
                 . '<td class="col-md-2 numb col-lg-2 ">' . $donnees['telephone'] . '</td> '
-                . '<td class="col-md-3 col-lg-2  retour email">' . $donnees['mail'] . '</td>'
+                . '<td class="col-md-3 col-lg-2  retour mail'.$i.' email">' . $donnees['mail'] . '</td>'
                 . '<td class="col-3 col-md-2 col-lg-2 dateI">' . $donnees['date_inscription'] . '</td>'
                 . '<td class="  dateN">' . $donnees['date_naissance'] . '</td> '
                 . '<td class="  sexe">' . $donnees['sexe'] . '</td> '
@@ -34,7 +35,7 @@ function liste() {
                     <div class="row">
                 <a class="fa fa-info fa-2x infos" href="membre.php?mail=' . $donnees['mail'] . '"></a>
                 <a href="index.php" class=" fa fa-envelope-o fa-2x envelope" ></a>                
-                <a href="index.php" class="  fa fa-trash fa-2x trash ' . '" ></a>
+                <a  class="fa fa-trash fa-2x trash mail'.$i.'  "></a>
                 
                 <a href="index.php" class=" fa fa-pencil-square-o fa-2x pencil" ></a>
                 </td>
@@ -45,8 +46,9 @@ function liste() {
            
 
 
-        $html_tab = render($data);
+        $html_tab = render($data, $donnees['mail']);
         echo $html_tab;
+        $i++;
     }
 }
 

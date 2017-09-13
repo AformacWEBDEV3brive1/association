@@ -3,7 +3,8 @@
 $(document).ready(function () {
     $("#dateInscription").datepicker();
     $("#dateNaissance").datepicker();
-    
+
+
 });
 
 
@@ -15,13 +16,20 @@ function generate_tableau() {
         // info est défini dans information.php, c'est une variable qui va chercher ce que l'ajax doit afficher,
         // ici la fonction getTime coté serveur
         success: function (output) { //les 2 mots dans les parenthèses doit être les mêmes.
-            $(".tableau").append(output);
-            // .heure est le nom de la class <p> où s'affiche l'heure       
+            $(".tableauBody").append(output);
+            $('.trash').click(function () {
+                if (confirm('Voulez-vous supprimer cet utilisateur ?')) {
+                    var trash = '.' + this.classList[4] + '.email';
+                    user_delete($(trash).html());
+                }
+            });
         }
 
     });
 
+
 }
+
 
 
 function generate_filtres() {
@@ -34,7 +42,7 @@ function generate_filtres() {
         // info est défini dans information.php, c'est une variable qui va chercher ce que l'ajax doit afficher,
         // ici la fonction getTime coté serveur
         success: function (output) { //les 2 mots dans les parenthèses doit être les mêmes.
-            $(".tableau").html(output);
+            $(".tableauBody").html(output);
 
         },
         error: function (xhr, thrownError) {
@@ -47,8 +55,8 @@ function generate_filtres() {
 }
 
 function user_ajout() {
-    var dateI = ($('#dateInscription').data('datepicker').dates[0].getTime())/1000;
-    var dateN = ($('#dateNaissance').data('datepicker').dates[0].getTime())/1000;
+    var dateI = ($('#dateInscription').data('datepicker').dates[0].getTime()) / 1000;
+    var dateN = ($('#dateNaissance').data('datepicker').dates[0].getTime()) / 1000;
 
     $.ajax({url: 'includes/add_member.php',
         type: 'post',
@@ -69,27 +77,27 @@ function user_ajout() {
             //alert("succes!");
             $("#ajout").html(output);
             $("#formulaire").trigger("reset");
-              
+
         },
         error: function (xhr, thrownError) {
             alert("Erreur   " + "xhr.status: " + xhr.status + "   xhr.responseText: " + xhr.responseText + "   xhr.readyState: " + xhr.readyState + "   thrownError: " + thrownError);
         }
-        
+
 
     });
 }
 
 
-function user_delete() {
+function user_delete(mail) {
 
     $.ajax({url: '/association/includes/add_member.php',
         type: 'post',
         data: {info: 'user_delete',
-            recup: $('#inlineFormInputGroup').val()
+            mail: mail
         },
-        success: function (output) {
-            $("#supprimer").html(output);
-
+        success: function () {
+            $('.tableauBody').empty();
+            generate_tableau();
         }
 
     });
@@ -108,14 +116,14 @@ function generate_accueil() {
     });
 
 }
-function afficher(){
+function afficher() {
     $(".nav-link").addClass("visible");
     $(".nav-link,.visible").removeClass("cache");
     $(".form-control").addClass("cache");
     $(".form-control").removeClass("visible");
 
 }
-function cacher(){
+function cacher() {
     $(".visible").addClass("cache");
     $(".visible").removeClass("visible");
     $(".form-control").addClass("visible");
