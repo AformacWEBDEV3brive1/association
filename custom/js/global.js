@@ -13,9 +13,9 @@ function generate_tableau() {
         data: {info: 'liste'},
         success: function (output) {
             $(".tableauBody").append(output);
-            $('.trash').click(function () {
+            $('.trash').click(function () {//ajoute fonction click sur les poubelles
                 if (confirm('Voulez-vous supprimer cet utilisateur ?')) {
-                    var trash = '.' + this.classList[4] + '.email';
+                    var trash = '.' + this.classList[4] + '.email';//Selectionne la même classe que celle de la poubelle (en position [4]) et .email
                     user_delete($(trash).html());
                 }
             });
@@ -39,7 +39,12 @@ function generate_filtres() {
         // ici la fonction getTime coté serveur
         success: function (output) { //les 2 mots dans les parenthèses doit être les mêmes.
             $(".tableauBody").html(output);
-
+            $('.trash').click(function () {//ajoute fonction click sur les poubelles
+                if (confirm('Voulez-vous supprimer cet utilisateur ?')) {
+                    var trash = '.' + this.classList[4] + '.email';//Selectionne la même classe que celle de la poubelle (en position [4]) et .email
+                    user_delete($(trash).html());
+                }
+            });
         },
         error: function (xhr, thrownError) {
             alert(xhr.status);
@@ -92,8 +97,8 @@ function user_delete(mail) {
             mail: mail
         },
         success: function () {
-            $('.tableauBody').empty();
-            generate_tableau();
+            $('.tableauBody').empty();//on vide le tableau
+            generate_tableau();// puis on regenere
         }
 
     });

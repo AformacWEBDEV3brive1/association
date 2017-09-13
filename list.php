@@ -45,7 +45,7 @@ include 'includes/header.php';
                    
                 </tr>
                 </thead>
-                <tbody class='tableauBody'>
+                <tbody class='tableauBody'><!--Ajout <tbody> <thead> afin de structurer la table et d'avoir un <tbody> qu'on puisse utiliser normalement-->
                     
                 </tbody>
             </table>
