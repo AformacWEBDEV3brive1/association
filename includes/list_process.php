@@ -26,7 +26,10 @@ function liste() {
         } else {
             $date_n = '';
         }
-
+//$nomModif $prenomModif permettent de couper les noms et prenoms et ajoute '...'
+//Pour les suppression:
+//classe identique pour trash et mail concatené à chaques tours de boucle,
+//permet de selectionner le mail qui est sur la même ligne que la poubelle sur laquelle on a cliquer
         $nomModif = strlen($donnees['nom']) > 5 ? substr($donnees['nom'], 0, 3) . '...' : $donnees['nom'];
         $prenomModif = strlen($donnees['prenom']) > 5 ? substr($donnees['prenom'], 0, 3).'...' : $donnees['prenom'];
         $data = '<td class="col-2  col-md-1 col-lg-1 ">'. $nomModif .'</td> '
@@ -40,7 +43,7 @@ function liste() {
                 . '<td class="col-5 col-md-2 col-lg-3  actions">
                     <div class="row">
                 <a class="fa fa-info fa-2x infos" href="membre.php?mail=' . $donnees['mail'] . '"></a>
-                <a href="mailto:' . $donnees['mail'] . '" class=" fa fa-envelope-o fa-2x envelope" ></a>                
+                <a href="mailto:' . $donnees['mail'] . '" class=" fa fa-envelope-o fa-2x envelope" ></a>               
                 <a  class="fa fa-trash fa-2x trash mail' . $i . '  "></a>
                 
                 <a href="index.php" class=" fa fa-pencil-square-o fa-2x pencil" ></a>
