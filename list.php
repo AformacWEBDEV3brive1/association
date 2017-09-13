@@ -1,4 +1,6 @@
 <?php
+
+
 include 'includes/header.php';
 
 ?>
@@ -25,21 +27,11 @@ include 'includes/header.php';
         </select>
         <input type='text' id ="valeurs_filtre">
         <button type='submit'onclick="generate_filtres()"> Envoyer </button>
-    </div>
-
-    <div>
-        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-            <div class="input-group-addon">@</div>
-            <input type="text" id="inlineFormInputGroup" placeholder=" Mail"> 
-            <button type="submit" id="supprimer" onclick="user_delete()"> Supprimer </button>
-        </div>
-    </div>
-
-
-    
+    </div>    
         <div class='container titre_colonne retour'>
             <!-- remplacement de l'ancienne div par une table pour pouvoir utiliser facilement la librairie sorttable-->
             <table class='tableau sortable col-lg-12'>
+                <thead>
                 <tr class="row">
                     <th class='col-2 col-md-1 col-lg-1 nom'>Nom</th>
                     <th class='col-2 col-md-1 col-lg-1'>Prenom</th>
@@ -50,11 +42,13 @@ include 'includes/header.php';
                     <th class=' sexe'>Sexe</th>
                     <th class='col-md-1 age col-lg-1'>Age</th>
                     <th class='col-5 col-md-2 col-lg-3 actions'>Actions</th>
-                    
+                   
                 </tr>
+                </thead>
+                <tbody class='tableauBody'><!--Ajout <tbody> <thead> afin de structurer la table et d'avoir un <tbody> qu'on puisse utiliser normalement-->
+                    
+                </tbody>
             </table>
         </div>
-    
-
 </body>
 </html>

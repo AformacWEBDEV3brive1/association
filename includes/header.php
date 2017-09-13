@@ -5,7 +5,7 @@
     	<?php  session_start();?>
         <meta charset="UTF-8">
          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title></title>
+        <title>Association</title>
         <!-- libraries css-->
         <link type="text/css" rel="stylesheet" href="libraries/tether/dist/css/tether.css">
         <link type="text/css" rel="stylesheet" href="libraries/bootstrap/css/bootstrap.css">

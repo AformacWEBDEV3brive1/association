@@ -15,6 +15,7 @@ function openBDD()
     return $bdd;
 }
 
+
 function getPathDebugFile()
 {
     global $linux_user;
@@ -23,6 +24,7 @@ function getPathDebugFile()
 
     return $path;
 }
+
 
 ?>
 

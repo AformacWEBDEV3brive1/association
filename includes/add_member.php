@@ -29,7 +29,7 @@ function getForm() {
         'role' => $_POST['role'],
         'status' => $_POST['status'],
         'log' => $_POST['log'],
-        'mdp' => crypt($_POST['mdp'])
+        'mdp' => $_POST['mdp']
     );
     //debug_php($data);
     //print_r($data);
@@ -126,14 +126,31 @@ function user_new($data) {
     $query = "";
     $query .= user_insert() . ";";
     $query .= user_insert("log") . ";";
+    
+    $tableau_valeurs = array(
+        'nom' => $data['nom'],
+        'prenom' => $data['prenom'],
+        'telephone' => $data['telephone'],
+        'mail' => $data ['mail'],
+        'date_inscription' => $data['date_inscription'],
+        'date_naissance' => $data['date_naissance'],
+        'sexe' => $data['sexe'],
+        'log' => $data['log'],
+        'mdp' => $data['mdp']
+    );
+    
     if(isset($_POST["status"]) && $_POST["status"]!="Vide")
     {
+        debug_php('il y a un status');
         $query .= user_insert("status") . ";";
+        $tableau_valeurs['status'] = $data['status'];
     }
     
     if(isset($_POST["role"]) && $_POST["role"]!="Vide")
     {
+        debug_php('il y a un role');
         $query .= user_insert("role") . ";";
+        $tableau_valeurs['role'] = $data['role'];
     }
     
     
@@ -144,19 +161,7 @@ function user_new($data) {
     
     $req_membre = $bdd->prepare($query);
     
-    $tmp = $req_membre->execute(array(
-        'nom' => $data['nom'],
-        'prenom' => $data['prenom'],
-        'telephone' => $data['telephone'],
-        'mail' => $data ['mail'],
-        'date_inscription' => $data['date_inscription'],
-        'date_naissance' => $data['date_naissance'],
-        'sexe' => $data['sexe'],
-        'log' => $data['log'],
-        'mdp' => $data['mdp'],
-        'role' => $data['role'],
-        'status' => $data['status']
-    ));
+    $tmp = $req_membre->execute($tableau_valeurs);
     
     /*echo '<br/>';
      print_r($tmp);
@@ -185,18 +190,19 @@ function user_insert($table = "membre") {
 }
 
 //supprime un utilisateur par son mail
-function user_delete($mail) {
+function user_delete() {
+   
     $db = openBDD();
     
     try {
-        $sup = $db->exec("DELETE FROM `membre` WHERE mail='$mail'");
+        $sup = $db->exec("DELETE FROM `membre` WHERE mail= '".$_POST['mail']."'");
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
     $db = null;
 }
 
-//user_delete('yves.laurent@hotmil.com');
+
 ?>
 
 

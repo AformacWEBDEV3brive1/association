@@ -3,8 +3,6 @@ include 'includes/header.php'; //inclusion de l'header dans toute les pages.
 include 'includes/accueil_site.php';
 include 'includes/nav_bar.php'; //inclusion de la la nav bar dans toute les pages.
 ?>
-
-
 <body>
     <?php
     //on detruit la session aprés reception du message. 
@@ -25,6 +23,7 @@ include 'includes/nav_bar.php'; //inclusion de la la nav bar dans toute les page
         session_destroy();
         // on detruit la session aprés reception du message.
     } else {
+        
         $_SESSION['log'];
         ?>
         <script>
