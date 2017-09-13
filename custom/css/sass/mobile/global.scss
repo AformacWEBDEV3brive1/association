@@ -22,51 +22,98 @@ body{
 }
 
 #accueil {
-    .taille_photo{
+    .taille{
         width:100%; 
-        height: 100%;
+        height:100%;
     }
+
     .background_message{
         background-color: $back_message;
         color: $bleu_pale;
     }
     .espace_message{
         margin-top: 4%;
-        margin-bottom: 4%;
-        border-radius: 2%;
+        margin-bottom: 4%;        
     }
-    
+
     .espace h1{
         padding: 2%;
-        
     }
-    
 
-} 
+    #article.back_article{
 
-//class lier aux fonctions afficher()/cacher()
-#nav_bar .cache{
-	display:none;
-	}
-#nav_bar .visible{
-	display:block;
-	}
-        .numb {
-            display : none;
+        background-color: yellow;
+
+        .margin_titre{
+            margin-bottom: 25px;
         }
-        .email{
-            display : none;
+
+        .taille{
+            width: 100%;
+            height: 100%;
         }
-        .sexe{
-            display : none;
+        .margin_titre_article{
+            margin-top: 4%;
         }
-        
-        .dateN{
-            display : none;
+        .margin_photo_article{
+            margin-top: 2%
         }
-        .age{
+        .taille_photo{
+            height:50%;
+            width: 50%
+        }
+        .flotte{
+            float: right;
+            margin-right: 11px;
+            margin-left: 7px;
+        }
+        .padding_contenu{
+            padding-left: 11px;
+            padding-right: 11px;
+            text-align: justify;
+            line-height: 26px;
+        }
+        .padding {
+            padding-top: 10px;
+        }
+        .police{
+            font-family: Times;
+        }
+        .police_titre{
+            font-family: monospace;
+            font-variant-caps: small-caps;
+        }
+        .hidden{
             display:none;
         }
-        .pencil, .trash, .envelope, .infos{
-            margin-left:5%;
+        .show{
+            display:block;
         }
+    }
+}
+//class lier aux fonctions afficher()/cacher()
+#nav_bar .cache{
+    display:none;
+}
+#nav_bar .visible{
+    display:block;
+}
+.numb {
+    display : none;
+}
+.email{
+    display : none;
+}
+.sexe{
+    display : none;
+}
+
+.dateN{
+    display : none;
+}
+.age{
+    display:none;
+}
+.pencil, .trash, .envelope, .infos{
+    margin-left:5%;
+}
