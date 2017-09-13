@@ -7,43 +7,41 @@ if (isset($_POST['info'])) {
     $info();
 }
 
-            
 function liste() {
 
 //recuperation des infos de la base de données
-
-   //$bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456789$');
+    //$bdd = new PDO('mysql:host=127.0.0.1;dbname=association;charset=utf8', 'root', '123456789$');
 
     $bdd = openBDD();
 
 
     $reponse = $bdd->query('SELECT * FROM membre');
 
-        $i = 0;
+    $i = 0;
     while ($donnees = $reponse->fetch()) {
-        $date_i = date('d/m/y',$donnees['date_inscription']);
-        if($donnees['date_naissance'] != ''){
-            $date_n = date('d/m/y',$donnees['date_naissance']);
-            $age_v=birthday_to_age($donnees['date_naissance']);
-        }
-        else{
+        $date_i = date('d/m/y', $donnees['date_inscription']);
+        if ($donnees['date_naissance'] != '') {
+            $date_n = date('d/m/y', $donnees['date_naissance']);
+            $age_v = birthday_to_age($donnees['date_naissance']);
+        } else {
             $date_n = '';
         }
 
-        
-        $data = '<td class="col-2  col-md-1 col-lg-1 ">'. substr($donnees['nom'], 0, 5) .'</td> '
-                . '<td class="col-2 col-md-1 col-lg-1 ">' . $donnees['prenom'] . '</td> '
+        $nomModif = strlen($donnees['nom']) > 5 ? substr($donnees['nom'], 0, 3) . '...' : $donnees['nom'];
+        $prenomModif = strlen($donnees['prenom']) > 5 ? substr($donnees['prenom'], 0, 3).'...' : $donnees['prenom'];
+        $data = '<td class="col-2  col-md-1 col-lg-1 ">'. $nomModif .'</td> '
+                . '<td class="col-2 col-md-1 col-lg-1 ">' . $prenomModif . '</td> '
                 . '<td class="col-md-2 numb col-lg-2 ">' . $donnees['telephone'] . '</td> '
-                . '<td class="col-md-3 col-lg-2  retour mail'.$i.' email">' . $donnees['mail'] . '</td>'
+                . '<td class="col-md-3 col-lg-2  retour mail' . $i . ' email">' . $donnees['mail'] . '</td>'
                 . '<td class="col-3 col-md-2 col-lg-2 dateI">' . $date_i . '</td>'
                 . '<td class="  dateN">' . $date_n . '</td> '
                 . '<td class="  sexe">' . $donnees['sexe'] . '</td> '
-                . '<td class=" col-md-1 col-lg-1 age">' . $age_v. '</td> '
+                . '<td class=" col-md-1 col-lg-1 age">' . $age_v . '</td> '
                 . '<td class="col-5 col-md-2 col-lg-3  actions">
                     <div class="row">
                 <a class="fa fa-info fa-2x infos" href="membre.php?mail=' . $donnees['mail'] . '"></a>
-                <a href="mailto:'.$donnees['mail'].'" class=" fa fa-envelope-o fa-2x envelope" ></a>                
-                <a  class="fa fa-trash fa-2x trash mail'.$i.'  "></a>
+                <a href="mailto:' . $donnees['mail'] . '" class=" fa fa-envelope-o fa-2x envelope" ></a>                
+                <a  class="fa fa-trash fa-2x trash mail' . $i . '  "></a>
                 
                 <a href="index.php" class=" fa fa-pencil-square-o fa-2x pencil" ></a>
                 </td>
@@ -138,21 +136,20 @@ function filter_nom_prenom() {
         $reponse = $bdd->query('SELECT * FROM membre');
     }
     while ($donnees = $reponse->fetch()) {
-        $date_i = date('d/m/Y',$donnees['date_inscription']);
-        if($donnees['date_naissance'] != ''){
-            $date_n = date('d/m/Y',$donnees['date_naissance']);
-        }
-        else{
+        $date_i = date('d/m/Y', $donnees['date_inscription']);
+        if ($donnees['date_naissance'] != '') {
+            $date_n = date('d/m/Y', $donnees['date_naissance']);
+        } else {
             $date_n = '';
         }
-        $data = '<td class="col-1 col-md-1">' . $donnees['nom'] . 
-                '</td> <td class="col-1 col-md-1">' . $donnees['prenom'] . 
-                '</td> <td class="col-2 col-md-2">' . $donnees['telephone'] . 
-                '</td> <td class="col-2 col-md-2 retour">' . $donnees['mail'] . 
-                '</td><td class="col-2 col-md-2">' . $date_i . 
-                '</td><td class="col-2 col-md-2">' . $date_n . 
-                '</td> <td class="col-1 col-md-1">' . $donnees['sexe'] . 
-                '</td> <td class="col-1 col-md-1"> <a href="membre.php?mail=' . $donnees['mail'] . 
+        $data = '<td class="col-1 col-md-1">' . $donnees['nom'] .
+                '</td> <td class="col-1 col-md-1">' . $donnees['prenom'] .
+                '</td> <td class="col-2 col-md-2">' . $donnees['telephone'] .
+                '</td> <td class="col-2 col-md-2 retour">' . $donnees['mail'] .
+                '</td><td class="col-2 col-md-2">' . $date_i .
+                '</td><td class="col-2 col-md-2">' . $date_n .
+                '</td> <td class="col-1 col-md-1">' . $donnees['sexe'] .
+                '</td> <td class="col-1 col-md-1"> <a href="membre.php?mail=' . $donnees['mail'] .
                 '" > Details </a> </td>';
         $html_tab = render($data);
         echo $html_tab;
