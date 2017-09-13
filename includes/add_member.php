@@ -126,14 +126,31 @@ function user_new($data) {
     $query = "";
     $query .= user_insert() . ";";
     $query .= user_insert("log") . ";";
+    
+    $tableau_valeurs = array(
+        'nom' => $data['nom'],
+        'prenom' => $data['prenom'],
+        'telephone' => $data['telephone'],
+        'mail' => $data ['mail'],
+        'date_inscription' => $data['date_inscription'],
+        'date_naissance' => $data['date_naissance'],
+        'sexe' => $data['sexe'],
+        'log' => $data['log'],
+        'mdp' => $data['mdp']
+    );
+    
     if(isset($_POST["status"]) && $_POST["status"]!="Vide")
     {
+        debug_php('il y a un status');
         $query .= user_insert("status") . ";";
+        $tableau_valeurs['status'] = $data['status'];
     }
     
     if(isset($_POST["role"]) && $_POST["role"]!="Vide")
     {
+        debug_php('il y a un role');
         $query .= user_insert("role") . ";";
+        $tableau_valeurs['role'] = $data['role'];
     }
     
     
@@ -144,19 +161,7 @@ function user_new($data) {
     
     $req_membre = $bdd->prepare($query);
     
-    $tmp = $req_membre->execute(array(
-        'nom' => $data['nom'],
-        'prenom' => $data['prenom'],
-        'telephone' => $data['telephone'],
-        'mail' => $data ['mail'],
-        'date_inscription' => $data['date_inscription'],
-        'date_naissance' => $data['date_naissance'],
-        'sexe' => $data['sexe'],
-        'log' => $data['log'],
-        'mdp' => $data['mdp'],
-        'role' => $data['role'],
-        'status' => $data['status']
-    ));
+    $tmp = $req_membre->execute($tableau_valeurs);
     
     /*echo '<br/>';
      print_r($tmp);
