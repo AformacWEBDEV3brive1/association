@@ -7,7 +7,7 @@
 
 //Fait le 18/09/2017
 
-include 'parameters.php';
+include '../parameters.php';
 
 
 $bdd = openBDD();
