@@ -27,7 +27,6 @@ function generate_tableau() {
 }
 
 
-
 function generate_filtres() {
     $.ajax({url: '/association/includes/list_process.php',
         type: 'post',
@@ -117,6 +116,7 @@ function generate_accueil() {
     });
 
 }
+
 function afficher() {
     $(".nav-link").addClass("visible");
     $(".nav-link,.visible").removeClass("cache");
@@ -124,6 +124,7 @@ function afficher() {
     $(".form-control").removeClass("visible");
 
 }
+
 function cacher() {
     $(".visible").addClass("cache");
     $(".visible").removeClass("visible");
@@ -131,6 +132,7 @@ function cacher() {
     $(".form-control").removeClass("cache");
 
 }
+
 
 
 

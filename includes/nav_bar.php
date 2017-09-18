@@ -14,6 +14,7 @@
 				</span></a></li>
 				<li class="nav-item"><a class="nav-link cache" href="ajout.php">Ajout </a></li>
 				<li class="nav-item"><a class="nav-link cache" href="list.php">	Liste</a></li>
+                                <li class="nav-item"><a class="nav-link cache" href="interface_admin.php"> Administration </a></li>
 				<form class="form-inline my-2 my-lg-0" method="post"
 					action="./includes/connect_user_login.php">
 					<input class="form-control mr-sm-2 visible" type="text"
