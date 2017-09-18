@@ -41,32 +41,40 @@
                 <h1 class="col-12 text-center"> <?php echo $res['titre']; ?> </h1>
             </div>
             <div class="row">
-            	<div id="hiddenMessage" class="hidden"><p> <?php echo $res['message']; ?> </p></div>
+            	<div id="hiddenMessage"><p> <?php echo $res['message']; ?> </p></div>
                 <div class="col-12 espace_message">
                     <h2 id="typed" class="background_message"></h2>
                 </div>
             </div>
             <div class="row margeBottom1">
-                <img class="col-12 taille" class="" src="<?php echo $res['photo']; ?>" /> 
+                <img class="col-12 taille" class="" src="<?php echo $res['image']; ?>" /> 
             </div>
             <div id="article" class="back_article container margeBottom1">
     			<h2>Les dernières nouvelles</h2>
-                <div class="row">
-                	<div class="">
-                		<div class="padding_contenu text-center padding police_titre show">
-                			<h2 class="margin_titre"> "Entrer le Titre de l'article. le caca c'est délicieux parcz que ça sent bon"</h2>
-                		</div>
-                		<div class="">
-                			<img class="flotte taille_photo" src="image/logokaamelott.jpg" alt="" />
-                		</div>
-                		<div class="padding_contenu text-center padding police_titre hidden">
-                			<h2 class="margin_titre"> "Entrer le Titre de l'article. le caca c'est délicieux parcz que ça sent bon"</h2>
-                		</div>
-                		<div class="padding_contenu police">      
-                			<p> ing and tpsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard psu cle Ipsum is simply dummy text of the printing and tpsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard psu cle Ipsum is simply dummy text o </p>
-                		</div>
-                	</div>
-                </div>
+    			<?php 
+    			     $tabArticles = getArticles();
+    			     //print_r($tabArticles);
+    			     foreach ($tabArticles as $article): ?>
+
+                        <div class="row">
+                        	<div class="">
+                        		<div class="padding_contenu text-center padding police_titre show">
+                        			<h2 class="margin_titre"><?php echo $article[0]; ?></h2>
+                        		</div>
+                        		<div class="">
+                        			<img class="flotte taille_photo" src="<?php echo $article[1]; ?>" alt="" />
+                        		</div>
+                        		<div class="padding_contenu text-center padding police_titre hidden">
+                        			<h2 class="margin_titre"><?php echo $article[0]; ?></h2>
+                        		</div>
+                        		<div class="padding_contenu police">      
+                        			<p><?php echo $article[2]; ?></p>
+                        		</div>
+                        	</div>
+                        </div>
+
+    			
+    			<?php endforeach; ?>
             </div>
     <!-------------------------tripler l'article et sur mobile 1 article sur les autres devices 3 articles ---------------------------------------------------->
             <div class="row margeBottom1">

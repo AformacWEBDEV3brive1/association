@@ -1,8 +1,8 @@
 body {
   background-color: white; }
 
-.hidden {
-  visibility: hidden; }
+#hiddenMessage {
+  display: none; }
 
 .margeBottom1 {
   margin-bottom: 1%; }
