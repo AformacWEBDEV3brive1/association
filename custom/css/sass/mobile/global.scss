@@ -42,6 +42,12 @@ body{
 
         background-color: yellow;
 
+        .row{
+	    display: none;
+	}
+	#article0{
+	    display: block;
+	}
         .margin_titre{
             margin-bottom: 25px;
         }

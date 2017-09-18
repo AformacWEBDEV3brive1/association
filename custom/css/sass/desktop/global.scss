@@ -11,6 +11,16 @@ body{
     }
 }
 
+#accueil #article.back_article{
+    
+    .row{
+	display: block;
+    }
+    .taille_photo{
+        width: 50%;
+	max-height: 250px;
+    }
+}
 //class lier aux fonctions afficher()/cacher()
 #nav_bar .cache{
 	display:none;

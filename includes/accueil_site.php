@@ -24,7 +24,7 @@ function affiche_accueil() {
 
 function getArticles(){
     $db = openBDD();
-    $articles = $db->query("SELECT * FROM news");
+    $articles = $db->query("SELECT * FROM news ORDER BY date DESC");
     return $articles->fetchAll();
 }
 ?>

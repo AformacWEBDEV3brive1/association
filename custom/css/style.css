@@ -49,6 +49,10 @@ body {
   padding: 2%; }
 #accueil #article.back_article {
   background-color: yellow; }
+  #accueil #article.back_article .row {
+    display: none; }
+  #accueil #article.back_article #article0 {
+    display: block; }
   #accueil #article.back_article .margin_titre {
     margin-bottom: 25px; }
   #accueil #article.back_article .taille {
@@ -115,6 +119,8 @@ body {
     color: #81DAF5;
     font-size: 25px; }
 
+  #accueil #article.back_article .row {
+    display: block; }
   #accueil #article.back_article .taille_photo {
     width: 35%; }
   #accueil #article.back_article .hidden {
@@ -141,6 +147,12 @@ body {
     background-color: #0F9DE8;
     color: #81DAF5;
     font-size: 25px; }
+
+  #accueil #article.back_article .row {
+    display: block; }
+  #accueil #article.back_article .taille_photo {
+    width: 50%;
+    max-height: 250px; }
 
   #nav_bar .cache {
     display: none; }

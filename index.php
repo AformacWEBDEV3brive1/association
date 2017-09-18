@@ -53,15 +53,16 @@
     			<h2>Les dernières nouvelles</h2>
     			<?php 
     			     $tabArticles = getArticles();
+    			     $i =0;
     			     //print_r($tabArticles);
     			     foreach ($tabArticles as $article): ?>
 
-                        <div class="row">
+                        <div id="<?php echo 'article' . $i;$i++; ?>" class="row">
                         	<div class="">
                         		<div class="padding_contenu text-center padding police_titre show">
                         			<h2 class="margin_titre"><?php echo $article[0]; ?></h2>
                         		</div>
-                        		<div class="">
+                        		<div>
                         			<img class="flotte taille_photo" src="<?php echo $article[1]; ?>" alt="" />
                         		</div>
                         		<div class="padding_contenu text-center padding police_titre hidden">
@@ -69,6 +70,9 @@
                         		</div>
                         		<div class="padding_contenu police">      
                         			<p><?php echo $article[2]; ?></p>
+                        		</div>
+                        		<div>      
+                        			<p><?php echo date('d/m/y', $article[3]); ?></p>
                         		</div>
                         	</div>
                         </div>
