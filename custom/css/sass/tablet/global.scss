@@ -1,8 +1,22 @@
 body{
-    background-color: $bleu_pale;
+        //background-color: $bleu_pale;
+      background-color: white;
 }
 
+#accueil{
+     .background_message{
+        background-color: $back_message;
+        color: $bleu_pale;
+        font-size: 25px;
+    }
+}
+
+
 #accueil #article.back_article{
+    
+    .row{
+	display: block;
+    }
     .taille_photo{
         width: 35%;
     }

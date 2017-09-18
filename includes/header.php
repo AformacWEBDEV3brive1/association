@@ -20,10 +20,12 @@
         <script type="text/javascript" src="libraries/bootstrap/js/bootstrap.js"></script>        
         <script type="text/javascript" src="libraries/bootstrap/datepicker/bootstrap-datepicker.js"></script>
         <script type="text/javascript" src="libraries/sorttable.js"></script>
+        <script type="text/javascript" src="libraries/typed.js-master/lib/typed.js"></script>
 
         <!-- custom css  -->
         <link rel="stylesheet" type="text/css" href="custom/css/style.css" />
 
         <!-- custom js  -->
         <script type="text/javascript" src="custom/js/global.js"></script> 
+
     </head>

@@ -8,10 +8,10 @@ include 'includes/test_log.php';
 
 
 <body>
+    
     <?php $res = affiche_accueil(); ?>
 
-    
-
+   
     <form id="formulaire" action="includes/interface_admin_process.php" method="post">
         <div id="Administration" class="container">
 
