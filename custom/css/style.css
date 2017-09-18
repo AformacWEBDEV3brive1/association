@@ -39,7 +39,8 @@ body {
 
 #accueil .background_message {
   background-color: #0F9DE8;
-  color: #81DAF5; }
+  color: #81DAF5;
+  font-size: 15px; }
 #accueil .espace_message {
   margin-top: 4%;
   margin-bottom: 4%;
@@ -109,6 +110,11 @@ body {
   body {
     background-color: white; }
 
+  #accueil .background_message {
+    background-color: #0F9DE8;
+    color: #81DAF5;
+    font-size: 25px; }
+
   #accueil #article.back_article .taille_photo {
     width: 35%; }
   #accueil #article.back_article .hidden {
@@ -130,6 +136,11 @@ body {
 @media screen and (min-width: 992px) {
   body {
     background-color: white; }
+
+  #accueil .background_message {
+    background-color: #0F9DE8;
+    color: #81DAF5;
+    font-size: 25px; }
 
   #nav_bar .cache {
     display: none; }
