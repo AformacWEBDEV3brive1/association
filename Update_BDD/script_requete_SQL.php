@@ -12,7 +12,7 @@ include 'parameters.php';
 
 $bdd = openBDD();
 $test = $bdd->exec('
-CREATE TABLE News
+CREATE TABLE news
 (
     Titre VARCHAR(100),
         Image VARCHAR(100),
@@ -21,15 +21,15 @@ CREATE TABLE News
         
         
         ); 
-CREATE TABLE Reseaux
+CREATE TABLE reseaux
 (
     Type varchar(100), 
-    URL varchar(100));
+    url varchar(100));
             
-CREATE TABLE Carrousel
+CREATE TABLE carrousel
 (
-    Image varchar(100),
-    Ordre varchar(100));
+    image varchar(100),
+    ordre varchar(100));
 
    
 ALTER TABLE site DROP COLUMN photo,
