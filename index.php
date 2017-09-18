@@ -43,7 +43,7 @@ include 'includes/nav_bar.php'; //inclusion de la la nav bar dans toute les page
         </div>
         <div class="row">
             <div class="col-12 espace_message">
-                <h1 class="background_message"> <?php echo $res['message']; ?> </h1>
+                <h2 class="background_message"> <?php echo $res['message']; ?> </h2>
             </div>
         </div>
         <div class="row">
