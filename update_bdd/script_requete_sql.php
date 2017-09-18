@@ -17,7 +17,7 @@ CREATE TABLE news
     titre VARCHAR(100),
         image VARCHAR(100),
         contenu TEXT(1000),
-        date DATE
+        date VARCHAR(255)
         
         
         ); 
