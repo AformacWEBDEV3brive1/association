@@ -3,6 +3,14 @@ body{
       background-color: white;
 }
 
+#accueil{
+     .background_message{
+        background-color: $back_message;
+        color: $bleu_pale;
+        font-size: 25px;
+    }
+}
+
 //class lier aux fonctions afficher()/cacher()
 #nav_bar .cache{
 	display:none;

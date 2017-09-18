@@ -3,6 +3,15 @@ body{
       background-color: white;
 }
 
+#accueil{
+     .background_message{
+        background-color: $back_message;
+        color: $bleu_pale;
+        font-size: 25px;
+    }
+}
+
+
 #accueil #article.back_article{
     .taille_photo{
         width: 35%;
