@@ -41,8 +41,8 @@
                 <h1 class="col-12 text-center"> <?php echo $res['titre']; ?> </h1>
             </div>
             <div class="row">
+            	<div id="hiddenMessage" class="hidden"><p> <?php echo $res['message']; ?> </p></div>
                 <div class="col-12 espace_message">
-                	<div id="hiddenMessage" class="hidden"><p> <?php echo $res['message']; ?> </p></div>
                     <h2 id="typed" class="background_message"></h2>
                 </div>
             </div>
@@ -84,9 +84,7 @@
         var typed = new Typed('#typed', {
               stringsElement: '#hiddenMessage',
         	  typeSpeed: 30,
-              callback: function () {
-                  $(".typed-cursor").hide();
-              }
+              showCursor: false
         	});
         </script>
 	</body>
