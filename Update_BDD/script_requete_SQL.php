@@ -14,10 +14,10 @@ $bdd = openBDD();
 $test = $bdd->exec('
 CREATE TABLE news
 (
-    Titre VARCHAR(100),
-        Image VARCHAR(100),
-        Contenu TEXT(1000),
-        Date DATE
+    titre VARCHAR(100),
+        image VARCHAR(100),
+        contenu TEXT(1000),
+        date DATE
         
         
         ); 
