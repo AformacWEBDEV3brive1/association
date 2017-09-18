@@ -42,7 +42,8 @@
             </div>
             <div class="row">
                 <div class="col-12 espace_message">
-                    <h2 class="background_message"> <?php echo $res['message']; ?> </h2>
+                	<div id="hiddenMessage" class="hidden"><p> <?php echo $res['message']; ?> </p></div>
+                    <h2 id="typed" class="background_message"></h2>
                 </div>
             </div>
             <div class="row margeBottom1">
@@ -79,5 +80,14 @@
     	<div id="footer" class="container-fluid">
         	<iframe class="taille" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3978.7138331420456!2d1.5139166765459926!3d45.15924487717139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1505215294054" style="border:0" allowfullscreen></iframe>
         </div>
+        <script>
+        var typed = new Typed('#typed', {
+              stringsElement: '#hiddenMessage',
+        	  typeSpeed: 30,
+              callback: function () {
+                  $(".typed-cursor").hide();
+              }
+        	});
+        </script>
 	</body>
 </html>

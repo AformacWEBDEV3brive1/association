@@ -1,6 +1,9 @@
 body {
   background-color: white; }
 
+.hidden {
+  visibility: hidden; }
+
 .margeBottom1 {
   margin-bottom: 1%; }
 
