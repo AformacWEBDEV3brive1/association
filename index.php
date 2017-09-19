@@ -34,21 +34,21 @@ include 'includes/nav_bar.php'; //inclusion de la la nav bar dans toute les page
     }
     ?>
 
-    <?php $res = affiche_accueil(); ?>
+    <?php $tab = affiche_accueil(); ?>
 
 
         <div class="container" id='accueil'>
             <div class="row">
-                <h1 class="col-12 text-center"> <?php echo $res['titre']; ?> </h1>
+                <h1 class="col-12 text-center"> <?php echo $tab['site']['titre']; ?> </h1>
             </div>
             <div class="row">
-            	<div id="hiddenMessage"><p> <?php echo $res['message']; ?> </p></div>
+            	<div id="hiddenMessage"><p> <?php echo $tab['site']['message']; ?> </p></div>
                 <div class="col-12 espace_message">
                     <h2 id="typed" class="background_message"></h2>
                 </div>
             </div>
             <div class="row margeBottom1">
-                <img class="col-12 taille" class="" src="<?php echo $res['image']; ?>" /> 
+                <img class="col-12 taille" src="<?php echo $tab['site']['image']; ?>" /> 
             </div>
             <div id="article" class="back_article container margeBottom1">
     			<h2>Les dernières nouvelles</h2>
@@ -82,10 +82,10 @@ include 'includes/nav_bar.php'; //inclusion de la la nav bar dans toute les page
             </div>
     <!-------------------------tripler l'article et sur mobile 1 article sur les autres devices 3 articles ---------------------------------------------------->
             <div class="row margeBottom1">
-                <img class="col-12 taille"src=" <?php echo $res['image'] ?>" />
+                <img class="col-12 taille"src=" <?php echo $tab['carrousel'][1]['photo'] ?>" />
             </div>
                 <div class="row">
-                <a class="col-6 offset-3 text-center" href=" <?php echo $res['reseaux'] ?>"> 
+                <a class="col-6 offset-3 text-center" href=" <?php echo $tab['reseaux'][0]['url'] ?>"> 
                     <i class="fa fa-4x fa-facebook-square" aria-hidden="true" ></i> </a>
             </div>
     	</div>

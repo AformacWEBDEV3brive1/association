@@ -9,7 +9,7 @@ include 'includes/test_log.php';
 
 <body>
     
-    <?php $res = affiche_accueil(); ?>
+    <?php $tab = affiche_accueil();?>
 
    
     <form id="formulaire" action="includes/interface_admin_process.php" method="post">
@@ -20,35 +20,35 @@ include 'includes/test_log.php';
             <div class="row">
                 <div class="col-md-3"></div>
                 <label class="col-12 col-md-2">Titre: </label>
-                <textarea  id="nom" class="col-12 col-md-4 form-control" name="titre"><?php echo $res['titre']; ?></textarea>
+                <textarea  id="nom" class="col-12 col-md-4 form-control" name="titre"><?php echo $tab['site']['titre']; ?></textarea>
                 <div class="col-md-3"></div>
             </div>
 
             <div class="row">
                 <div class="col-md-3"></div>
                 <label class="col-12 col-md-2">Message: </label>                
-                <textarea  id="nom" class="col-12 col-md-4 form-control" name="message"><?php echo $res['message']; ?></textarea>
+                <textarea  id="nom" class="col-12 col-md-4 form-control" name="message"><?php echo $tab['site']['message']; ?></textarea>
                 <div class="col-md-3"></div>
             </div>
 
             <div class="row">
                 <div class="col-md-3"></div>
                 <label class="col-12 col-md-2">Image_principale: </label>
-                <textarea  id="nom" class="col-12 col-md-4 form-control" name="image_principale"><?php echo $res['photo']; ?></textarea>
+                <textarea  id="nom" class="col-12 col-md-4 form-control" name="image_principale"><?php echo $tab['site']['image']; ?></textarea>
                 <div class="col-md-3"></div>
             </div>
 
             <div class="row">
                 <div class="col-md-3"></div>
                 <label class="col-12 col-md-2"> Image_secondaire: </label>
-                <textarea  id="nom" class="col-12 col-md-4 form-control" name="image_secondaire"><?php echo $res['image']; ?></textarea>
+                <textarea  id="nom" class="col-12 col-md-4 form-control" name="image_secondaire"><?php echo $tab['carrousel'][1]['photo']; ?></textarea>
                 <div class="col-md-3"></div>
             </div>
 
             <div class="row">
                 <div class="col-md-3"></div>
                 <label class="col-12 col-md-2"> Facebook (URL): </label>
-                <textarea  id="nom" class="col-12 col-md-4 form-control" name="reseaux"><?php echo $res['reseaux']; ?></textarea>
+                <textarea  id="nom" class="col-12 col-md-4 form-control" name="reseaux"><?php echo $tab['reseaux'][0]['url']; ?></textarea>
                 <div class="col-md-3"></div>
             </div>
 
@@ -57,21 +57,21 @@ include 'includes/test_log.php';
             <div class="row">
                 <div class="col-md-3"></div>
                 <label class="col-12 col-md-2">Titre: </label>
-                <textarea  id="nom" class="col-12 col-md-4 form-control" name=""><?php echo $res['']; ?></textarea>
+                <textarea  id="nom" class="col-12 col-md-4 form-control"><?php echo $res['']; ?></textarea>
                 <div class="col-md-3"></div>
             </div>
 
             <div class="row">
                 <div class="col-md-3"></div>
                 <label class="col-12 col-md-2">Image: </label>
-                <textarea  id="nom" class="col-12 col-md-4 form-control" name=""><?php echo $res['']; ?></textarea>
+                <textarea  id="nom" class="col-12 col-md-4 form-control"><?php echo $res['']; ?></textarea>
                 <div class="col-md-3"></div>
             </div>
 
             <div class="row">
                 <div class="col-md-3"></div>
                 <label class="col-12 col-md-2">Contenu: </label>
-                <textarea  id="nom" class="col-12 col-md-4 form-control" name=""><?php echo $res['']; ?></textarea>
+                <textarea  id="nom" class="col-12 col-md-4 form-control"><?php echo $res['']; ?></textarea>
                 <div class="col-md-3"></div>
             </div>
 

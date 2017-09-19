@@ -20,15 +20,36 @@ function update() {
         $db = openBDD();
         
         $bdd = $db->prepare('UPDATE site SET image = ?,
-             photo = ?,
              titre = ?,
-             message = ?,
-             reseaux = ?');
-        $bdd->execute(array($image_secondaire, $image_principale, $titre, $message, $reseau,));
+             message = ?;');
+        $bdd->execute(array($image_principale, $titre, $message));
     } catch (PDOException $e) {
         echo $e->getMessage();
         print_r("test");
     }
+    
+    try {
+        $db = openBDD();
+        
+        $bdd1 = $db->prepare(
+             'UPDATE carrousel SET photo = ?;');
+        $bdd1->execute(array($image_secondaire));
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        print_r("test1");
+    }
+    
+    try {
+        $db = openBDD();
+        
+        $bdd2 = $db->prepare('UPDATE reseaux SET url = ?');
+        $bdd2->execute(array($reseau));
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        print_r("test2");
+    }
+    
+    
     // header redirige vers la page administration
     header("Location: http://localhost/association/interface_admin.php");
     exit("La redirection ne s'est pas effectuée");
